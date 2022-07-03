@@ -4,11 +4,12 @@ import GetStrLocalized from '../datas/GetStrLocalized'
 import H1TitleBreadcrumb from '../components/title/H1TitleBreadcrumb'
 import PageContent from '../components/util/PageContent'
 import BigButtonWithTextABottom from "../components/bigButton/BigButtonWithTextABottom"
-import YouTubePlayer from '../components/YouTubePlayer'
+import YouTubePlayer from '../components/video/YouTubePlayer'
 import { useLocation } from 'react-router-dom'
 import Categories from '../components/bigButton/Categories'
 import Chapters from '../components/bigButton/Chapters'
 import ReadingContent from '../components/util/ReadingContent'
+import Videos from '../components/video/Videos'
 
 
 function Bible({ language, setLanguage, backendUrl }) {
@@ -24,8 +25,8 @@ function Bible({ language, setLanguage, backendUrl }) {
 
 	const [parentFolders, setParentFolders] = useState([])
 
-	const [testamentRequest, setTestamentRequest] = useState({ categories: [] })
-	const [contentRequest, setContentRequest] = useState({ breadcrumb: [], title: "", typeOfPage: "", categories: [], content: [] })
+	const [testamentRequest, setTestamentRequest] = useState({ categories: [], videoIds: [] })
+	const [contentRequest, setContentRequest] = useState({ breadcrumb: [], title: "", typeOfPage: "", categories: [], videoIds: [], content: [] })
 
 
 	const readingPartOfBreadcrumb = {
@@ -125,9 +126,9 @@ function Bible({ language, setLanguage, backendUrl }) {
 					<br /><br />
 
 					<Categories categories={testamentRequest.categories} />
+					<Videos videoIds={testamentRequest.videoIds} />
 				</React.Fragment>
 			}
-
 
 			{
 				typeOfPage === TypeOfRequest_BIBLE_CONTENT &&
@@ -135,13 +136,17 @@ function Bible({ language, setLanguage, backendUrl }) {
 					<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{contentRequest.title}</H1TitleBreadcrumb>
 					<br /><br />
 
-					{contentRequest.typeOfPage === "book" ?
-						<Chapters chapters={contentRequest.categories} />
-						:
-						<Categories categories={contentRequest.categories} />
+					{
+						contentRequest.typeOfPage === "book" ?
+							<Chapters chapters={contentRequest.categories} />
+							:
+							<Categories categories={contentRequest.categories} />
 					}
 
-					{contentRequest.typeOfPage === "chapter" &&
+					<Videos videoIds={contentRequest.videoIds} />
+
+					{
+						contentRequest.typeOfPage === "chapter" &&
 						<React.Fragment>
 							<br />
 							<div style={{ marginLeft: 40 }}>

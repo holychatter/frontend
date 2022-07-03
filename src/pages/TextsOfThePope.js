@@ -2,7 +2,7 @@ import React from "react"
 import H1TitleBreadcrumb from "../components/title/H1TitleBreadcrumb"
 import H2TitleId from "../components/title/H2TitleId"
 import PageContent from '../components/util/PageContent'
-import YouTubePlayer from "../components/YouTubePlayer"
+import YouTubePlayer from "../components/video/YouTubePlayer"
 import GetInnerHtmlStrLocalized from "../datas/GetInnerHtmlStrLocalized"
 import GetStrLocalized from "../datas/GetStrLocalized"
 
