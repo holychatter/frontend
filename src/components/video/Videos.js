@@ -8,7 +8,6 @@ function Videos({ videoIds }) {
 				videoIds !== "" &&
 				videoIds.length > 0 &&
 				<React.Fragment>
-					<br />
 					{
 						videoIds.map((videoId, videoIdIndex) => {
 							return (

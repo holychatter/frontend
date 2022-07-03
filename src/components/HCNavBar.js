@@ -10,8 +10,8 @@ import image_frenchFlag from '../assets/resources/custom/navbar_icons/france.png
 import image_profil from '../assets/resources/custom/navbar_icons/profil.png'
 import GetHtmlStrLocalized from '../datas/GetHtmlStrLocalized'
 import GetStrLocalized from '../datas/GetStrLocalized'
-import OpenNav from './nav/OpenNav'
-import CloseNav from './nav/CloseNav'
+import OpenNav from './navigation/OpenNav'
+import CloseNav from './navigation/CloseNav'
 
 
 function HCNavBar({ language, setLanguage }) {

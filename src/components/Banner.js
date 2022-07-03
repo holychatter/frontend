@@ -6,8 +6,8 @@ import image_youtube from '../assets/resources/custom/images/youtube.png'
 import image_magnifying_glass from '../assets/resources/custom/images/magnifying_glass.jpg'
 import GetStrLocalized from '../datas/GetStrLocalized'
 import React from 'react'
-import OpenNav from './nav/OpenNav'
-import CloseNav from './nav/CloseNav'
+import OpenNav from './navigation/OpenNav'
+import CloseNav from './navigation/CloseNav'
 
 
 function Banner({ language }) {

@@ -10,6 +10,10 @@ import Categories from '../components/bigButton/Categories'
 import Chapters from '../components/bigButton/Chapters'
 import ReadingContent from '../components/util/ReadingContent'
 import Videos from '../components/video/Videos'
+import NavigationArrows from '../components/navigation/NavigationArrows'
+import NavigationArrowsCentered from '../components/navigation/NavigationArrowsCentered'
+
+
 
 
 function Bible({ language, setLanguage, backendUrl }) {
@@ -26,8 +30,7 @@ function Bible({ language, setLanguage, backendUrl }) {
 	const [parentFolders, setParentFolders] = useState([])
 
 	const [testamentRequest, setTestamentRequest] = useState({ categories: [], videoIds: [] })
-	const [contentRequest, setContentRequest] = useState({ breadcrumb: [], title: "", typeOfPage: "", categories: [], videoIds: [], content: [] })
-
+	const [contentRequest, setContentRequest] = useState({ breadcrumb: [], title: "", typeOfPage: "", arrows: [], categories: [], videoIds: [], content: [] })
 
 	const readingPartOfBreadcrumb = {
 		path: GetStrLocalized(language, "readingsFolderName"),
@@ -133,7 +136,29 @@ function Bible({ language, setLanguage, backendUrl }) {
 			{
 				typeOfPage === TypeOfRequest_BIBLE_CONTENT &&
 				<React.Fragment>
-					<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{contentRequest.title}</H1TitleBreadcrumb>
+
+					<div className='hc-not-very-short-screen'>
+						<table>
+							<tbody>
+								<tr>
+									<NavigationArrows arrows={contentRequest.arrows} />
+									<td style={{ paddingLeft: "20px" }} width='100%'>
+										<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{contentRequest.title}</H1TitleBreadcrumb>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div className='hc-very-short-screen'>
+						<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{contentRequest.title}</H1TitleBreadcrumb>
+						<div style={{ paddingLeft: "20px" }}>
+							aaaaaa
+						</div>
+					</div>
+
+
+
+
 					<br /><br />
 
 					{
@@ -155,6 +180,9 @@ function Bible({ language, setLanguage, backendUrl }) {
 						</React.Fragment>
 					}
 
+					<br />
+					<NavigationArrowsCentered arrows={contentRequest.arrows} />
+					<br />
 				</React.Fragment>
 			}
 
