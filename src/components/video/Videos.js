@@ -11,8 +11,8 @@ function Videos({ videoIds }) {
 					{
 						videoIds.map((videoId, videoIdIndex) => {
 							return (
-								<React.Fragment>
-									<span key={"videoid-summary-" + videoIdIndex} style={{ padding: '10px' }}><YouTubePlayer videoId={videoId} /></span>
+								<React.Fragment key={"videoid-summary-" + videoIdIndex}>
+									<span style={{ padding: '10px' }}><YouTubePlayer videoId={videoId} /></span>
 									<br /><br />
 								</React.Fragment>
 							)

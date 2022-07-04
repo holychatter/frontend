@@ -6,16 +6,15 @@ import NavigationArrow from './NavigationArrow'
 function NavigationArrows({ arrows }) {
 
 	return (
-		<div style={{ paddingLeft: "50px", paddingTop: "20px" }}>
+		<React.Fragment>
 			{
 				arrows !== "" &&
 				arrows.length > 0 &&
 				<React.Fragment>
-					<br />
 					{
 						arrows.map((arrow, arrowIndex) => {
 							return (
-								<td key={"arrow-" + arrowIndex}>
+								<td key={"arrow-" + arrowIndex} style={{ paddingLeft: arrowIndex === 0 ? "50px" : "0px", paddingTop: "20px" }}>
 									<NavigationArrow arrow={arrow} />
 								</td>
 							)
@@ -23,7 +22,7 @@ function NavigationArrows({ arrows }) {
 					}
 				</React.Fragment>
 			}
-		</div>
+		</React.Fragment>
 	)
 }
 

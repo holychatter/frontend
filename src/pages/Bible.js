@@ -138,11 +138,11 @@ function Bible({ language, setLanguage, backendUrl }) {
 				<React.Fragment>
 
 					<div className='hc-not-very-short-screen'>
-						<table>
+						<table width='100%'s>
 							<tbody>
-								<tr>
+								<tr  >
 									<NavigationArrows arrows={contentRequest.arrows} />
-									<td style={{ paddingLeft: "20px" }} width='100%'>
+									<td width='100%'>
 										<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{contentRequest.title}</H1TitleBreadcrumb>
 									</td>
 								</tr>

@@ -36,7 +36,7 @@ function NavigationArrow({ arrow }) {
 		<span className='hc-onTopRight-from-header'>
 			<a href={arrow.url}>
 				<img src={arrow.type === typeLeft ? image_arrow_left : (arrow.type === typeRight ? image_arrow_right : image_arrow_up)} onMouseOver={onMouseOverCallback}
-					onMouseOut={onMouseOutCallback} height='30px' width='30px' />
+					onMouseOut={onMouseOutCallback} height='30px' width='30px' alt="arrow to navigate" />
 			</a>
 		</span>
 	)

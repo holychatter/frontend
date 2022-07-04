@@ -13,7 +13,7 @@ function Categories({ categories }) {
 				{
 					categories.map((item, index) => {
 						return (
-							<BigButtonWithTextABottom key={"categories-btn-" + index} link={item.url} image={item.image} duration="" title={item.name} tags="" sourceImage="" sourceName="" beginOfClassName="hc-big-button-normal" />
+							<BigButtonWithTextABottom key={"categories-btn-" + index} link={item.url} image={item.image} duration="" title={item.name} tags={item.subTitle} sourceImage="" sourceName="" beginOfClassName="hc-big-button-normal" />
 						)
 					})
 				}
