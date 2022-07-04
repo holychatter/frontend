@@ -16,9 +16,9 @@ import Bubble from '../components/chatbot/Bubble'
 function Categories({ language, setLanguage, backendUrl }) {
 
 	const location = useLocation();
-	const [lastPath, setLastPath] = useState("")
-	const [request, setRequest] = useState({ name: "", parentFolders: [], bigButtontDatas: [], chatMsgs: [] })
-	let categoryName = ""
+	const [lastPath, setLastPath] = useState("");
+	const [request, setRequest] = useState({ name: "", parentFolders: [], bigButtontDatas: [], chatMsgs: [] });
+	let categoryName = "";
 
 	if (location.pathname !== lastPath) {
 

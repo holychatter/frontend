@@ -22,7 +22,6 @@ function Readings({ language, setLanguage }) {
 			<H1TitleId language={language} titleId="readings" />
 			<br /><br />
 
-
 			<table className='hc-categories-left-margin'>
 				<tbody>
 					<tr>

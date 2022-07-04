@@ -1,16 +1,10 @@
 import GetHtmlStrLocalized from "../../datas/GetHtmlStrLocalized"
+import H2Title from "./H2Title"
 
 
 function H2TitleId({ language, titleId }) {
 
-    return (
-        <div style={{ marginLeft: 40, marginRight: 40 }}>
-            <h2>
-                <GetHtmlStrLocalized language={language} textId={titleId} />
-            </h2>
-            <hr style={{ height: 2, backgroundColor: '#333333', border: 'none' }} />
-        </div>
-    )
+    return <H2Title><GetHtmlStrLocalized language={language} textId={titleId} /></H2Title>
 }
 
 export default H2TitleId
