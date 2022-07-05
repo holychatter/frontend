@@ -19,7 +19,7 @@ function H1TitleBreadcrumb({ language, parentFolders, children }) {
                     parentFolders !== "" &&
                     parentFolders.map((item, index) => {
                         if (item.name === "") {
-                            return <li><Link to={"/" + language + "/" + item.path}><img border="0" onMouseOver={onMouseOverHome} onMouseOut={onMouseOutHome} src={image_house_out} alt="home" width="14px" height="14px" /></Link></li>
+                            return <li key={"breadcrumb-elt-" + index}><Link to={"/" + language + "/" + item.path}><img border="0" onMouseOver={onMouseOverHome} onMouseOut={onMouseOutHome} src={image_house_out} alt="home" width="14px" height="14px" /></Link></li>
                         }
                         return <li key={"breadcrumb-elt-" + index} ><Link to={"/" + language + "/" + item.path}>{item.name}</Link></li>
                     })

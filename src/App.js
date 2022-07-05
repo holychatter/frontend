@@ -42,7 +42,8 @@ function App() {
 					<Route path={GetStrLocalized("fr", "readingsFolderName") + "/" + GetStrLocalized("fr", "bibleFolderName") + "/*"} element={<Bible language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsFolderName") + "/" + GetStrLocalized("fr", "catechismOfTheCatholicChurchFolderName") + "/*"} element={<CatechismOfTheCatholicChurch language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>					
 					<Route path={GetStrLocalized("fr", "readingsFolderName") + "/" + GetStrLocalized("fr", "textsOfThePopeFolderName")} element={<TextsOfThePope language="fr" setLanguage={setLanguage} />}></Route>
-					<Route path={GetStrLocalized("fr", "readingsOfTheDayFolderName") + "/*"} element={<ReadingsOfTheDay language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
+					<Route path={GetStrLocalized("fr", "readingsOfTheDayFolderName") + "/*"} element={<ReadingsOfTheDay language="fr" setLanguage={setLanguage} backendUrl={backendUrl} readingsType="all" />}></Route>
+					<Route path={GetStrLocalized("fr", "gospelOfTheDayFolderName") + "/*"} element={<ReadingsOfTheDay language="fr" setLanguage={setLanguage} backendUrl={backendUrl} readingsType="gospel" />}></Route>
 					<Route path={GetStrLocalized("fr", "sourcesFolderName") + "/"} element={<Sources language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("fr", "sourcesFolderName") + "/*"} element={<Source language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("fr", "christianMessageFolderName")} element={<ChristianMessage language="fr" setLanguage={setLanguage} />}></Route>
@@ -57,7 +58,8 @@ function App() {
 					<Route path={GetStrLocalized("en", "readingsFolderName") + "/" + GetStrLocalized("en", "bibleFolderName") + "/*"} element={<Bible language="en" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("en", "readingsFolderName") + "/" + GetStrLocalized("en", "catechismOfTheCatholicChurchFolderName") + "/*"} element={<CatechismOfTheCatholicChurch language="en" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("en", "readingsFolderName") + "/" + GetStrLocalized("en", "textsOfThePopeFolderName")} element={<TextsOfThePope language="en" setLanguage={setLanguage} />}></Route>
-					<Route path={GetStrLocalized("en", "readingsOfTheDayFolderName") + "/*"} element={<ReadingsOfTheDay language="en" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
+					<Route path={GetStrLocalized("en", "readingsOfTheDayFolderName") + "/*"} element={<ReadingsOfTheDay language="en" setLanguage={setLanguage} backendUrl={backendUrl} readingsType="all" />}></Route>
+					<Route path={GetStrLocalized("en", "gospelOfTheDayFolderName") + "/*"} element={<ReadingsOfTheDay language="en" setLanguage={setLanguage} backendUrl={backendUrl} readingsType="gospel" />}></Route>
 					<Route path={GetStrLocalized("en", "sourcesFolderName") + "/"} element={<Sources language="en" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("en", "sourcesFolderName") + "/*"} element={<Source language="en" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 					<Route path='*' element={<Article language="en" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
