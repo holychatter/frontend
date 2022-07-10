@@ -12,6 +12,8 @@ import PageContent from '../components/util/PageContent'
 import BigButtonWithTextABottom from '../components/bigButton/BigButtonWithTextABottom'
 import H2TitleId from '../components/title/H2TitleId'
 import Bubble from '../components/chatbot/Bubble'
+import CategoriesBigButtons from '../components/bigButton/CategoriesBigButtons'
+import Bubbles from '../components/chatbot/Bubbles'
 
 function Categories({ language, setLanguage, backendUrl }) {
 
@@ -45,37 +47,8 @@ function Categories({ language, setLanguage, backendUrl }) {
 
 			<br /><br />
 
-			<div className='hc-categories-left-margin'>
-				{
-					request.bigButtontDatas !== "" &&
-					request.bigButtontDatas.map((item, index) => {
-						return <BigButtonWithTextABottom key={index} link={item.link} image={item.image} duration={item.duration} title={item.title} tags={item.tags} sourceImage={item.sourceImage} sourceName={item.sourceName} beginOfClassName="hc-big-button-normal" />
-					})
-				}
-			</div>
-
-
-			{
-				request.chatMsgs !== "" &&
-				request.chatMsgs.length > 0 &&
-				<React.Fragment>
-					<br />
-					<H2TitleId language={language} titleId="relatedQuestions" />
-					<div className='hc-categories-left-margin'>
-						{
-							request.chatMsgs.map((item, index) => {
-								return (
-									<Link key={"chat-msg-" + item.id + "-" + index} className='hc-move-up-animation' style={{ marginTop: 15, marginRight: 15, marginBottom: 15, display: 'inline-block', textDecoration: 'none' }} to='/fr/preparation-a-la-confirmation'>
-										<Bubble>{item.mainTrigger}</Bubble>
-									</Link>
-								)
-							})
-						}
-					</div>
-				</React.Fragment>
-			}
-
-
+			<CategoriesBigButtons categories={request.bigButtontDatas} />
+			<Bubbles language={language} titleId="relatedQuestions" chatMsgs={request.chatMsgs} />
 
 		</PageContent>
 	)

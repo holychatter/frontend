@@ -13,7 +13,7 @@ function Chapters({ chapters }) {
 				{
 					chapters.map((item, index) => {
 						return (
-							<BigButtonWithTextABottom key={"categories-btn-" + index} link={item.url} image={item.image} duration="" title={item.name} tags="" sourceImage="" sourceName="" beginOfClassName="hc-big-button-chapter" />
+							<BigButtonWithTextABottom key={"categories-btn-" + index} link={item.link} image={item.image} duration="" title={item.title} tags="" sourceImage="" sourceName="" beginOfClassName="hc-big-button-chapter" />
 						)
 					})
 				}

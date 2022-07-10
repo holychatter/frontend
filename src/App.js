@@ -19,6 +19,7 @@ import Bible from './pages/Bible'
 import CatechismOfTheCatholicChurch from './pages/CatechismOfTheCatholicChurch'
 import ReadingsOfTheDay from './pages/ReadingsOfTheDay'
 import Search from './pages/Search'
+import Home from './pages/Home'
 
 function App() {
 	const backendUrl = "http://localhost:8080"
@@ -35,6 +36,7 @@ function App() {
 				<meta name="theme-color" content="#E6E6FA" />
 			</Helmet>
 			<Routes> {/* The Routes decides which component to show based on the current URL.*/}
+				<Route path='/fr/' element={<Home language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 				<Route path='/fr/*'>
 					<Route path='' element={<HCNavBar language="fr" setLanguage={setLanguage} />}></Route>
 					<Route path={GetStrLocalized("fr", "categoriesFolderName") + "/*"} element={<Categories language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
@@ -43,7 +45,7 @@ function App() {
 					<Route path={GetStrLocalized("fr", "searchFolderName") + "/*"} element={<Search language="fr" setLanguage={setLanguage} backendUrl={backendUrl} setSearchValue={setSearchValue} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsFolderName")} element={<Readings language="fr" setLanguage={setLanguage} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsFolderName") + "/" + GetStrLocalized("fr", "bibleFolderName") + "/*"} element={<Bible language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
-					<Route path={GetStrLocalized("fr", "readingsFolderName") + "/" + GetStrLocalized("fr", "catechismOfTheCatholicChurchFolderName") + "/*"} element={<CatechismOfTheCatholicChurch language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>					
+					<Route path={GetStrLocalized("fr", "readingsFolderName") + "/" + GetStrLocalized("fr", "catechismOfTheCatholicChurchFolderName") + "/*"} element={<CatechismOfTheCatholicChurch language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsFolderName") + "/" + GetStrLocalized("fr", "textsOfThePopeFolderName")} element={<TextsOfThePope language="fr" setLanguage={setLanguage} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsOfTheDayFolderName") + "/*"} element={<ReadingsOfTheDay language="fr" setLanguage={setLanguage} backendUrl={backendUrl} readingsType="all" />}></Route>
 					<Route path={GetStrLocalized("fr", "gospelOfTheDayFolderName") + "/*"} element={<ReadingsOfTheDay language="fr" setLanguage={setLanguage} backendUrl={backendUrl} readingsType="gospel" />}></Route>
@@ -52,6 +54,7 @@ function App() {
 					<Route path={GetStrLocalized("fr", "christianMessageFolderName")} element={<ChristianMessage language="fr" setLanguage={setLanguage} />}></Route>
 					<Route path='*' element={<Article language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 				</Route>
+				<Route path='/en/' element={<Home language="en" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 				<Route path='/en/*'>
 					<Route path='' element={<HCNavBar language="en" setLanguage={setLanguage} />}></Route>
 					<Route path={GetStrLocalized("en", "categoriesFolderName") + "/*"} element={<Categories language="en" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>

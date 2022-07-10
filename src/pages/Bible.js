@@ -6,12 +6,12 @@ import PageContent from '../components/util/PageContent'
 import BigButtonWithTextABottom from "../components/bigButton/BigButtonWithTextABottom"
 import YouTubePlayer from '../components/video/YouTubePlayer'
 import { useLocation } from 'react-router-dom'
-import Categories from '../components/bigButton/Categories'
 import Chapters from '../components/bigButton/Chapters'
 import ReadingContent from '../components/util/ReadingContent'
 import Videos from '../components/video/Videos'
 import NavigationArrows from '../components/navigation/NavigationArrows'
 import NavigationArrowsCentered from '../components/navigation/NavigationArrowsCentered'
+import CategoriesBigButtons from '../components/bigButton/CategoriesBigButtons'
 
 
 
@@ -128,7 +128,7 @@ function Bible({ language, setLanguage, backendUrl }) {
 					<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{GetStrLocalized(language, typeOfPage === TypeOfRequest_OLD_TESTAMENT ? "oldTestament" : "newTestament")}</H1TitleBreadcrumb>
 					<br /><br />
 
-					<Categories categories={testamentRequest.categories} />
+					<CategoriesBigButtons categories={testamentRequest.categories} />
 					<Videos videoIds={testamentRequest.videoIds} />
 				</React.Fragment>
 			}
@@ -166,7 +166,7 @@ function Bible({ language, setLanguage, backendUrl }) {
 						contentRequest.typeOfPage === "book" ?
 							<Chapters chapters={contentRequest.categories} />
 							:
-							<Categories categories={contentRequest.categories} />
+							<CategoriesBigButtons categories={contentRequest.categories} />
 					}
 
 					<Videos videoIds={contentRequest.videoIds} />

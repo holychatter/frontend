@@ -3,8 +3,8 @@ import GetStrLocalized from '../datas/GetStrLocalized'
 import H1TitleBreadcrumb from '../components/title/H1TitleBreadcrumb'
 import PageContent from '../components/util/PageContent'
 import { useLocation } from 'react-router-dom'
-import Categories from '../components/bigButton/Categories'
 import ReadingContent from "../components/util/ReadingContent"
+import CategoriesBigButtons from "../components/bigButton/CategoriesBigButtons"
 
 
 
@@ -45,7 +45,7 @@ function CatechismOfTheCatholicChurch({ language, setLanguage, backendUrl }) {
 		<PageContent language={language} setLanguage={setLanguage}>
 			<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{request.title}</H1TitleBreadcrumb>
 			<br /><br />
-			<Categories categories={request.categories} />
+			<CategoriesBigButtons categories={request.categories} />
 			<br /><br />
 
 			<div style={{ marginLeft: 40 }}>

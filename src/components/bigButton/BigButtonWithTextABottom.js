@@ -19,7 +19,7 @@ function BigButtonWithTextABottom({ link, image, duration, title, tags, sourceIm
 						<span style={{textAlign: 'left'}}><b className='hc-button-title-style'><p>{title}</p></b></span>
 					</Link>
 					<span style={{textAlign: 'left', color: '#22292f'}}><p>{tags}</p></span>
-					<span style={{textAlign: 'left', color: '#22292f'}}>{sourceImage !== "" && <img src={sourceImage} alt='Source logo' width="23" height="23" style={{marginRight: 13}} />}{sourceName}</span>
+					<span style={{textAlign: 'left', color: '#22292f'}}>{ sourceImage !== undefined && sourceImage !== "" && <img src={sourceImage} alt='Source logo' width="23" height="23" style={{marginRight: 13}} />}{sourceName}</span>
 				</span>
 			</div>
         </React.Fragment>
