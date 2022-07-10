@@ -40,7 +40,8 @@ const TranslationsEn = {
     "encyclicalFratelliTutti": "Encyclical Fratelli Tutti",
     "encyclicalLaudatoSi": "Encyclical Laudato si'",
     "readThePopesWritings": "Read the Pope's writings",
-    "theSocialDoctrineOfTheChurch": "The Social Doctrine of the Church"
+    "theSocialDoctrineOfTheChurch": "The Social Doctrine of the Church",
+    "search": "Search"
 };
 
 const TranslationsFr = {
@@ -83,7 +84,8 @@ const TranslationsFr = {
     "encyclicalFratelliTutti": "Encyclique Fratelli Tutti",
     "encyclicalLaudatoSi": "Encyclique Laudato si'",
     "readThePopesWritings": "Lire les écrits du Pape",
-    "theSocialDoctrineOfTheChurch": "La doctrine sociale de l'église"
+    "theSocialDoctrineOfTheChurch": "La doctrine sociale de l'église",
+    "search": "Rechercher"
 };
 
 

@@ -125,15 +125,20 @@ function Article({ language, setLanguage, backendUrl }) {
 								<span id="right-recommendations-for-long-screens">
 
 
-									<div className='hc-long-screen' style={{ paddingLeft: 15, paddingRight: 5 }}>
+									<div className='hc-long-screen hc-small-margin' style={{ paddingLeft: 15, paddingRight: 5 }}>
 										{
 											request.rightRecommendationsHtmlForLongSreens !== "" &&
 											request.rightRecommendationsHtmlForLongSreens.map((item, index) => {
 												return (
-													<div key={index} className="hc-inline-flex hc-small-margin" >
-														<BigButtonWithTextAtRight allowPreview={false} language={language} item={item} />
+													<React.Fragment key={"right-recommendations-" + index} >
+														<div className="hc-inline-flex" >
+															<BigButtonWithTextAtRight allowPreview={false} language={language} item={item} />
+
+														</div>
 														<br />
-													</div>
+														<br />
+														<br />
+													</React.Fragment>
 												)
 											})
 										}

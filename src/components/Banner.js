@@ -1,16 +1,16 @@
 import '../assets/resources/custom/style/main-6.css'
 import '../assets/resources/custom/style/bootstrap_hc.css'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import image_logo from '../assets/upload/holy_chatter_logo.png'
 import image_youtube from '../assets/resources/custom/images/youtube.png'
 import image_magnifying_glass from '../assets/resources/custom/images/magnifying_glass.jpg'
 import GetStrLocalized from '../datas/GetStrLocalized'
-import React from 'react'
+import React, { useRef } from 'react'
 import OpenNav from './navigation/OpenNav'
 import CloseNav from './navigation/CloseNav'
 
 
-function Banner({ language }) {
+function Banner({ language, searchValue }) {
 
 	function openOrCloseNav() {
 		if (document.getElementById("hcSidenavId").style.width === "250px") {
@@ -19,6 +19,24 @@ function Banner({ language }) {
 			OpenNav();
 		}
 	}
+
+	const navigate = useNavigate();
+	const searchInputRef = useRef(null);
+
+	function goOnSearchPageIfInputNotEmpty() {
+		if (searchInputRef.current.value) {
+			var urlizedValue = searchInputRef.current.value.replaceAll("'", " ");
+			navigate('/' + language + '/' + GetStrLocalized(language, "search") + '/' + urlizedValue);
+		}
+	}
+
+	function onInputKeyPressed(e) {
+		if (e.keyCode === 13) {
+			e.preventDefault();
+			goOnSearchPageIfInputNotEmpty();
+		}
+	}
+
 
 	return (
 		<React.Fragment>
@@ -41,10 +59,10 @@ function Banner({ language }) {
 										<tr>
 											<td style={{ width: "20.0%" }}></td>
 											<td style={{ width: "55.0%" }}>
-												<input id='search-input' type='text' className='form-control' placeholder={GetStrLocalized(language, "search")} style={{ height: 24 }} autoFocus />
+												<input ref={searchInputRef} onKeyUp={onInputKeyPressed} type='text' defaultValue={searchValue} className='form-control' placeholder={GetStrLocalized(language, "search")} style={{ height: 24 }} />
 											</td>
 											<td style={{ paddingLeft: 27, width: "5.0%" }}>
-												<button id="search-button" type="submit" className="btn-primary hc-search-btn unselectable btn" style={{ width: 48, height: 37, marginTop: 0, marginRight: 0, marginBottom: 0, marginLeft: 5 }}></button>
+												<button onClick={goOnSearchPageIfInputNotEmpty} type="submit" className="btn-primary hc-search-btn unselectable btn" style={{ width: 48, height: 37, marginTop: 0, marginRight: 0, marginBottom: 0, marginLeft: 5 }}></button>
 											</td>
 											<td style={{ width: "20.0%" }}></td>
 										</tr>

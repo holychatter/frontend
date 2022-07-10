@@ -18,11 +18,13 @@ import TextsOfThePope from './pages/TextsOfThePope'
 import Bible from './pages/Bible'
 import CatechismOfTheCatholicChurch from './pages/CatechismOfTheCatholicChurch'
 import ReadingsOfTheDay from './pages/ReadingsOfTheDay'
+import Search from './pages/Search'
 
 function App() {
 	const backendUrl = "http://localhost:8080"
 	const location = useLocation();
 	const [language, setLanguage] = useState(location.pathname.length >= 3 ? location.pathname.substring(1, 3) : "en")
+	const [searchValue, setSearchValue] = useState("")
 
 	return (
 		<React.Fragment>
@@ -38,6 +40,7 @@ function App() {
 					<Route path={GetStrLocalized("fr", "categoriesFolderName") + "/*"} element={<Categories language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("fr", "chatbotFolderName")} element={<Chatbot language="fr" setLanguage={setLanguage} />}></Route>
 					<Route path={GetStrLocalized("fr", "aboutFolderName")} element={<About language="fr" setLanguage={setLanguage} />}></Route>
+					<Route path={GetStrLocalized("fr", "searchFolderName") + "/*"} element={<Search language="fr" setLanguage={setLanguage} backendUrl={backendUrl} setSearchValue={setSearchValue} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsFolderName")} element={<Readings language="fr" setLanguage={setLanguage} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsFolderName") + "/" + GetStrLocalized("fr", "bibleFolderName") + "/*"} element={<Bible language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsFolderName") + "/" + GetStrLocalized("fr", "catechismOfTheCatholicChurchFolderName") + "/*"} element={<CatechismOfTheCatholicChurch language="fr" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>					
@@ -54,6 +57,7 @@ function App() {
 					<Route path={GetStrLocalized("en", "categoriesFolderName") + "/*"} element={<Categories language="en" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("en", "chatbotFolderName")} element={<Chatbot language="en" setLanguage={setLanguage} />}></Route>
 					<Route path={GetStrLocalized("en", "aboutFolderName")} element={<About language="en" setLanguage={setLanguage} />}></Route>
+					<Route path={GetStrLocalized("en", "searchFolderName") + "/*"} element={<Search language="en" setLanguage={setLanguage} backendUrl={backendUrl} setSearchValue={setSearchValue} />}></Route>
 					<Route path={GetStrLocalized("en", "readingsFolderName")} element={<Readings language="en" setLanguage={setLanguage} />}></Route>
 					<Route path={GetStrLocalized("en", "readingsFolderName") + "/" + GetStrLocalized("en", "bibleFolderName") + "/*"} element={<Bible language="en" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("en", "readingsFolderName") + "/" + GetStrLocalized("en", "catechismOfTheCatholicChurchFolderName") + "/*"} element={<CatechismOfTheCatholicChurch language="en" setLanguage={setLanguage} backendUrl={backendUrl} />}></Route>
@@ -66,7 +70,7 @@ function App() {
 				</Route>
 				<Route path='*' element={<Navigate to="/fr" />}></Route>
 			</Routes>
-			<Banner language={language} />
+			<Banner language={language} searchValue={searchValue} />
 		</React.Fragment>
 	)
 }
