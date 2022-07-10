@@ -10,7 +10,7 @@ import H1TitleBreadcrumb from '../components/title/H1TitleBreadcrumb'
 import PageContent from '../components/util/PageContent'
 import GetHtmlStrLocalized from '../datas/GetHtmlStrLocalized'
 import BigButtonWithTextAtRight from '../components/bigButton/BigButtonWithTextAtRight'
-
+import { useCookies } from 'react-cookie';
 import Refs from '../components/util/Refs'
 
 function Article({ language, setLanguage, backendUrl }) {
@@ -24,20 +24,24 @@ function Article({ language, setLanguage, backendUrl }) {
 		duration: "", viewCountsAndUploadDate: "", chatbotId: "",
 		rightRecommendationsHtmlForLongSreens: [], bibleRefs: [], cccRefs: []
 	})
+	const [cookies, setCookies] = useCookies(['messageIds', 'allRecommendationIds']);
 
 	if (location.pathname !== lastPath) {
-
 		setLastPath(location.pathname);
 		const foldersArray = location.pathname.split('/');
 		if (foldersArray.length > 2) {
 			const articleIdFromPath = foldersArray[2]
 			setArticleId(articleIdFromPath)
-			const wtUrl = backendUrl + "/article_page_json?l=" + language + "&id=" + articleIdFromPath;
+			console.log("cookies.messageIds: " + cookies.messageIds)
+			console.log("cookies.allRecommendationIds: " + cookies.allRecommendationIds)
+			const wtUrl = backendUrl + "/article_page_json?l=" + language + "&id=" + articleIdFromPath + "&messageIds=" + cookies.messageIds + "&allRecommendationIds=" + cookies.allRecommendationIds;
 			console.log("Request url: " + wtUrl);
 			const getBackendWithFetch = async () => {
 				const response = await fetch(wtUrl);
 				const jsonData = await response.json();
 				setRequest(jsonData);
+				setCookies('messageIds', jsonData.messageIds, { path: '/' + language });
+				setCookies('allRecommendationIds', jsonData.allRecommendationIds, { path: '/' + language });
 			};
 			getBackendWithFetch();
 

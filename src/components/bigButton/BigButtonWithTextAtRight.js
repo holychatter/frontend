@@ -75,7 +75,7 @@ function BigButtonWithTextAtRight({ allowPreview, language, item }) {
 						</td>
 						<td className="hc-big-button-text-at-right-padding">
 							<Link to={item.link} style={{ textDecoration: 'none' }}><b className='hc-button-title-style'>{item.title}</b></Link>
-							<span style={{ color: '#22292f' }}><p>{allowPreview && <React.Fragment> <button style={{ cursor: 'pointer' }} onClick={Bb_loadYoutubeVideo} >{buttonText}</button> &nbsp; </React.Fragment>}{item.tags}</p></span>
+							<span style={{ color: '#22292f' }}><p>{allowPreview && <React.Fragment> <button style={{ cursor: 'pointer' }} onClick={Bb_loadYoutubeVideo}>{buttonText}</button> &nbsp; </React.Fragment>}{item.subTitle}</p></span>
 							<p><span style={{ textAlign: 'left', color: '#22292f' }}>{item.sourceImage !== "" && <img src={item.sourceImage} alt='Source logo' width="23" height="23" style={{ marginRight: 13 }} />}{item.sourceName}</span></p>
 							<span>{versesStr}</span>
 						</td>

@@ -5,13 +5,9 @@ import '../assets/resources/custom/style/dialog_max_height.css'
 import '../assets/resources/custom/style/categories-1.css'
 import React, { useState } from "react"
 import { useLocation } from "react-router-dom"
-import { Link } from "react-router-dom"
 import H1Title from '../components/title/H1Title'
 import H1TitleBreadcrumb from '../components/title/H1TitleBreadcrumb'
 import PageContent from '../components/util/PageContent'
-import BigButtonWithTextABottom from '../components/bigButton/BigButtonWithTextABottom'
-import H2TitleId from '../components/title/H2TitleId'
-import Bubble from '../components/chatbot/Bubble'
 import CategoriesBigButtons from '../components/bigButton/CategoriesBigButtons'
 import Bubbles from '../components/chatbot/Bubbles'
 

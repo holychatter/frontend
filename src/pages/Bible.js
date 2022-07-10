@@ -152,9 +152,7 @@ function Bible({ language, setLanguage, backendUrl }) {
 
 					<div className='hc-very-short-screen'>
 						<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{contentRequest.title}</H1TitleBreadcrumb>
-						<div style={{ paddingLeft: "20px" }}>
-							aaaaaa
-						</div>
+						<NavigationArrowsCentered arrows={contentRequest.arrows} />
 					</div>
 
 
