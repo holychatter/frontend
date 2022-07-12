@@ -11,7 +11,7 @@ import PageContent from '../components/util/PageContent'
 import CategoriesBigButtons from '../components/bigButton/CategoriesBigButtons'
 import Bubbles from '../components/chatbot/Bubbles'
 
-function Categories({ language, setLanguage, backendUrl }) {
+function Categories({ language, backendUrl }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("");
@@ -37,7 +37,7 @@ function Categories({ language, setLanguage, backendUrl }) {
 	}
 
 	return (
-		<PageContent language={language} setLanguage={setLanguage}>
+		<PageContent>
 
 			{lastPath === "/" + language + "/categories" ? <H1Title>{request.name}</H1Title> : <H1TitleBreadcrumb language={language} parentFolders={request.parentFolders}>{request.name}</H1TitleBreadcrumb>}
 

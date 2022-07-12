@@ -16,7 +16,7 @@ import CategoriesBigButtons from '../components/bigButton/CategoriesBigButtons'
 
 
 
-function Bible({ language, setLanguage, backendUrl }) {
+function Bible({ language, backendUrl }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
@@ -93,7 +93,7 @@ function Bible({ language, setLanguage, backendUrl }) {
 	}
 
 	return (
-		<PageContent language={language} setLanguage={setLanguage}>
+		<PageContent>
 
 			{
 				typeOfPage === TypeOfRequest_NONE &&

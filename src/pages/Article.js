@@ -13,7 +13,7 @@ import BigButtonWithTextAtRight from '../components/bigButton/BigButtonWithTextA
 import { useCookies } from 'react-cookie';
 import Refs from '../components/util/Refs'
 
-function Article({ language, setLanguage, backendUrl }) {
+function Article({ language, setDocumentTitle, backendUrl }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
@@ -32,19 +32,17 @@ function Article({ language, setLanguage, backendUrl }) {
 		if (foldersArray.length > 2) {
 			const articleIdFromPath = foldersArray[2]
 			setArticleId(articleIdFromPath)
-			console.log("cookies.messageIds: " + cookies.messageIds)
-			console.log("cookies.allRecommendationIds: " + cookies.allRecommendationIds)
 			const wtUrl = backendUrl + "/article_page_json?l=" + language + "&id=" + articleIdFromPath + "&messageIds=" + cookies.messageIds + "&allRecommendationIds=" + cookies.allRecommendationIds;
 			console.log("Request url: " + wtUrl);
 			const getBackendWithFetch = async () => {
 				const response = await fetch(wtUrl);
 				const jsonData = await response.json();
 				setRequest(jsonData);
+				setDocumentTitle(jsonData.name + " – " + jsonData.sourceName);
 				setCookies('messageIds', jsonData.messageIds, { path: '/' + language });
 				setCookies('allRecommendationIds', jsonData.allRecommendationIds, { path: '/' + language });
 			};
 			getBackendWithFetch();
-
 		}
 	}
 
@@ -59,7 +57,7 @@ function Article({ language, setLanguage, backendUrl }) {
 	}
 
 	return (
-		<PageContent language={language} setLanguage={setLanguage}>
+		<PageContent>
 
 			{lastPath === "/" + language + "/categories" ? <H1Title>{request.name}</H1Title> : <H1TitleBreadcrumb language={language} parentFolders={request.parentFolders}>{request.name}</H1TitleBreadcrumb>}
 

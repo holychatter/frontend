@@ -5,7 +5,7 @@ import BigButtonWithTextABottom from "../components/bigButton/BigButtonWithTextA
 import GetStrLocalized from "../datas/GetStrLocalized"
 import GetHtmlStrLocalized from "../datas/GetHtmlStrLocalized"
 
-function Readings({ language, setLanguage }) {
+function Readings({ language }) {
 
 
 	function SmallYoutubePlayer({ videoId }) {
@@ -18,7 +18,7 @@ function Readings({ language, setLanguage }) {
     const theSocialDoctrineOfTheChurchUrl = GetStrLocalized(language, "theSocialDoctrineOfTheChurchUrl")
 
 	return (
-		<PageContent language={language} setLanguage={setLanguage}>
+		<PageContent>
 			<H1TitleId language={language} titleId="readings" />
 			<br /><br />
 

@@ -44,7 +44,8 @@ const TranslationsEn = {
     "search": "Search",
     "helloTogetherLetsDiscoverTheChristianFaith": "Hello, together let's discover the Christian faith!",
     "novelties": "Novelties",
-    "chatNovelties": "Chat novelties"
+    "chatNovelties": "Chat novelties",
+    "manage": "Manage"
 };
 
 const TranslationsFr = {
@@ -91,7 +92,8 @@ const TranslationsFr = {
     "search": "Rechercher",
     "helloTogetherLetsDiscoverTheChristianFaith": "Bonjour, ensemble découvrons la foi chrétienne !",
     "novelties": "Nouveautés",
-    "chatNovelties": "Nouveautés pour le chat"
+    "chatNovelties": "Nouveautés pour le chat",
+    "manage": "Gérer"
 };
 
 

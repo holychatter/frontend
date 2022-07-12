@@ -10,10 +10,10 @@ import LinkToModal from '../components/modal/LinkToModal'
 
 
 
-function ChristianMessage({ language, setLanguage }) {
+function ChristianMessage({ language }) {
 
     return (
-        <PageContent language={language} setLanguage={setLanguage}>
+        <PageContent>
             <H1TitleId language={language} titleId="christianMessage" />
             <br /><br />
             <div className="hc-left-a-search">

@@ -6,7 +6,7 @@ import PageContent from '../components/util/PageContent'
 import BigButtonWithTextABottom from "../components/bigButton/BigButtonWithTextABottom"
 
 
-function Sources({ language, setLanguage, backendUrl }) {
+function Sources({ language, backendUrl }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
@@ -26,7 +26,7 @@ function Sources({ language, setLanguage, backendUrl }) {
 	}
 
 	return (
-		<PageContent language={language} setLanguage={setLanguage}>
+		<PageContent>
 			<H1Title>Sources</H1Title>
 			<br /><br />
 

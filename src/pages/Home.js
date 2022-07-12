@@ -10,7 +10,7 @@ import { useCookies } from 'react-cookie'
 
 
 
-function Home({ language, setLanguage, backendUrl }) {
+function Home({ language, backendUrl }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
@@ -30,7 +30,7 @@ function Home({ language, setLanguage, backendUrl }) {
 	}
 
 	return (
-		<PageContent language={language} setLanguage={setLanguage}>
+		<PageContent>
 			<H1TitleId language={language} titleId="helloTogetherLetsDiscoverTheChristianFaith" />
 			<br /><br />
 

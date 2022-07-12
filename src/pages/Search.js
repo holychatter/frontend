@@ -7,7 +7,7 @@ import BigButtonWithTextAtRight from '../components/bigButton/BigButtonWithTextA
 
 
 
-function Search({ language, setLanguage, backendUrl, setSearchValue }) {
+function Search({ language, backendUrl, setSearchValue }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
@@ -34,7 +34,7 @@ function Search({ language, setLanguage, backendUrl, setSearchValue }) {
 
 
 	return (
-		<PageContent language={language} setLanguage={setLanguage}>
+		<PageContent>
 			<H1TitleId language={language} titleId="search" />
 			<br /><br />
 

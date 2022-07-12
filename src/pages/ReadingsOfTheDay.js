@@ -7,7 +7,7 @@ import ReadingContent from "../components/util/ReadingContent";
 
 
 
-function ReadingsOfTheDay({ language, setLanguage, backendUrl, readingsType }) {
+function ReadingsOfTheDay({ language, backendUrl, readingsType }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("");
@@ -34,7 +34,7 @@ function ReadingsOfTheDay({ language, setLanguage, backendUrl, readingsType }) {
 	}
 
 	return (
-		<PageContent language={language} setLanguage={setLanguage}>
+		<PageContent>
 			<H1Title>{request.title}</H1Title>
 			<br /><br />
 

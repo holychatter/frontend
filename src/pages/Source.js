@@ -8,7 +8,7 @@ import BigButtonsWithTextABottom from '../components/bigButton/BigButtonsWithTex
 import GetStrLocalized from "../datas/GetStrLocalized"
 
 
-function Source({ language, setLanguage, backendUrl }) {
+function Source({ language, backendUrl }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
@@ -41,7 +41,7 @@ function Source({ language, setLanguage, backendUrl }) {
 	]
 
 	return (
-		<PageContent language={language} setLanguage={setLanguage}>
+		<PageContent>
 			<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{request.name}</H1TitleBreadcrumb>
 			<br /><br />
 

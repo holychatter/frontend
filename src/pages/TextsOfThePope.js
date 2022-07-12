@@ -7,7 +7,7 @@ import GetInnerHtmlStrLocalized from "../datas/GetInnerHtmlStrLocalized"
 import GetStrLocalized from "../datas/GetStrLocalized"
 
 
-function TextsOfThePope({ language, setLanguage }) {
+function TextsOfThePope({ language }) {
 
 	const parentFolders = [
 		{
@@ -18,10 +18,9 @@ function TextsOfThePope({ language, setLanguage }) {
 	const textsOfThePope = GetStrLocalized(language, "textsOfThePope")
 
 	return (
-		<PageContent language={language} setLanguage={setLanguage}>
+		<PageContent>
 			<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{textsOfThePope}</H1TitleBreadcrumb>
 			<br /><br />
-
 
 			<H2TitleId language={language} titleId={"encyclicLetterPatrisCorde"} />
 			<br />

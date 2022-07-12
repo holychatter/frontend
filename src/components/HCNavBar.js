@@ -8,13 +8,14 @@ import image_sources from '../assets/resources/custom/navbar_icons/sources.jpg'
 import image_englishFlag from '../assets/resources/custom/navbar_icons/england.png'
 import image_frenchFlag from '../assets/resources/custom/navbar_icons/france.png'
 import image_profil from '../assets/resources/custom/navbar_icons/profil.png'
+import image_manage from '../assets/resources/custom/navbar_icons/manage.png'
 import GetHtmlStrLocalized from '../datas/GetHtmlStrLocalized'
 import GetStrLocalized from '../datas/GetStrLocalized'
 import OpenNav from './navigation/OpenNav'
 import CloseNav from './navigation/CloseNav'
 
 
-function HCNavBar({ language, setLanguage }) {
+function HCNavBar({ language, setLanguage, location, backendUrl }) {
 
 	const otherLanguage = (language === "fr") ? "en" : "fr";
 	const image_otherLanguageFlag = (language === "fr") ? image_englishFlag : image_frenchFlag;
@@ -33,6 +34,7 @@ function HCNavBar({ language, setLanguage }) {
 				<Link to={"/" + language + "/" + GetStrLocalized(language, "sourcesFolderName")}><img style={{marginLeft: 20}} width='20px' src={image_sources} alt="sources" /><span className='hc-sidebar-text'><GetHtmlStrLocalized language={language} textId="sources" /></span></Link>
 				<Link to={"/" + otherLanguage} onClick={() => setLanguage(otherLanguage)}><img style={{marginLeft: 20}} width='20px' src={image_otherLanguageFlag} alt="flag" /><span className='hc-sidebar-text'><GetHtmlStrLocalized language={language} textId="goToTheOtherLanguageVersion" /></span></Link>
 				<Link to={"/" + language + "/" + GetStrLocalized(language, "aboutFolderName")}><img style={{marginLeft: 20}} width='20px' src={image_profil} alt="profil" /><span className='hc-sidebar-text'><GetHtmlStrLocalized language={language} textId="about" /></span></Link>
+				<a href={backendUrl + '/edit' + location.pathname}><img style={{marginLeft: 20}} width='20px' src={image_manage} alt="profil" /><span className='hc-sidebar-text'><GetHtmlStrLocalized language={language} textId="manage" /></span></a>
 				<br/><br/><br/><br/><br/><br/>
 			</div>
 			<br/>

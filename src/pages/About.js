@@ -11,10 +11,10 @@ import H2TitleId from '../components/title/H2TitleId'
 import { Link } from "react-router-dom"
 
 
-function About({ language, setLanguage }) {
+function About({ language }) {
 
     return (
-        <PageContent language={language} setLanguage={setLanguage}>
+        <PageContent>
             <H1TitleId language={language} titleId="about" />
             <br /><br />
 

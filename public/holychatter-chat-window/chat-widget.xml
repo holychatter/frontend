@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<messages>
+  <message id="main-chat-button">
+    <!-- Button at the bottom right to start the chat -->
+    <a href="/fr/chatbot"><img style="position: fixed; bottom: 30px; right: 30px; height: 100px; width: 124px; z-index: 9;" onmouseover="openThenCloseBubbleForBigScreen()" src="/resources/holychatter-chat-window/images/two_bubbles_button.png"/></a>
+
+    <!-- Buble and close button that can pop up when the mouse is over or after a delay -->
+    <div style="display: none;" id="chat-buble-container-id">
+      <img style="position: fixed; cursor: pointer; right: 30px; bottom: 227px; z-index: 9;" src="/resources/holychatter-chat-window/images/cross_black.png" onclick="closeBubble()" width="20" height="20" />
+      <div style="position: fixed; right: 30px; bottom: 120px; z-index: 9; background-image:url('/resources/holychatter-chat-window/images/bot_withouttriangle_bottom_right.png'); background-position: right 130px bottom 0px; background-size: 50px 24px; background-repeat: no-repeat; padding-bottom:14px;">
+        <div style="border-radius: 10px; font-size: 15px; padding:10px; background-color:#f1f0f0; min-height: 50px; max-width: 730px; font-weight: normal;">
+Bonjour je suis le chatbot Théophile. <img src="/resources/holychatter-chat-window/images/smile.png" width="20" height="20" /><br/>
+Si vous voulez discuter sur la foi chrétienne,<br/>
+vous pouvez cliquer sur le bouton ci-dessous.
+        </div>
+      </div>
+    </div>
+    <script>
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+
+  for (var i = 0; i != ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function areCookiesEnabled() {
+  if (getCookie("cookiesAllowed") == "true") {
+    return getCookie("hc-chat-display") == "";
+  }
+  return false;
+}
+
+var alreadyOpen = false;
+var nbOfTimeOpen = 0;
+function closeBubble() {
+  document.getElementById("chat-buble-container-id").style.display = "none";
+}
+
+function openBubble() {
+  document.getElementById("chat-buble-container-id").style.display = "block";
+  alreadyOpen = true;
+  if (areCookiesEnabled()) {
+    setCookie("hc-chat-display", "true", 1)
+  }
+}
+
+function openThenCloseBubble() {
+  openBubble();
+  nbOfTimeOpen = nbOfTimeOpen + 1;
+  setTimeout(function(){
+    nbOfTimeOpen = nbOfTimeOpen - 1;
+    if (nbOfTimeOpen == 0) {
+      closeBubble();
+    }
+  }, 5000);
+}
+
+function openThenCloseBubbleForBigScreen() {
+  if (matchMedia('only screen and (min-width: 851px)').matches) {
+    openThenCloseBubble();
+  }
+}
+
+
+if (areCookiesEnabled()) {
+  if (matchMedia('only screen and (min-width: 851px)').matches) {
+    setTimeout(function(){
+      if (!alreadyOpen) {
+        openThenCloseBubble();
+      }
+    }, 10000);
+  }
+}
+    </script>
+  </message>
+</messages>
+

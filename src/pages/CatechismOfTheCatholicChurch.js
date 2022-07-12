@@ -8,7 +8,7 @@ import CategoriesBigButtons from "../components/bigButton/CategoriesBigButtons"
 
 
 
-function CatechismOfTheCatholicChurch({ language, setLanguage, backendUrl }) {
+function CatechismOfTheCatholicChurch({ language, backendUrl }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
@@ -42,7 +42,7 @@ function CatechismOfTheCatholicChurch({ language, setLanguage, backendUrl }) {
 	}
 
 	return (
-		<PageContent language={language} setLanguage={setLanguage}>
+		<PageContent>
 			<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{request.title}</H1TitleBreadcrumb>
 			<br /><br />
 			<CategoriesBigButtons categories={request.categories} />
