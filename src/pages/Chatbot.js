@@ -1,11 +1,11 @@
 import { useRef, useState } from 'react'
-import HCNavBar from '../components/HCNavBar'
 
 
 
-function Chatbot({language}) {
+function Chatbot({ setDocumentTitle }) {
 
     const chatbotTextareaRef = useRef();
+    setDocumentTitle("Chatbot - Holy Chatter");
 
     function onEnterPress(e) {
         if(e.keyCode === 13 && e.shiftKey === false) {

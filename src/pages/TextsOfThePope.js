@@ -7,8 +7,9 @@ import GetInnerHtmlStrLocalized from "../datas/GetInnerHtmlStrLocalized"
 import GetStrLocalized from "../datas/GetStrLocalized"
 
 
-function TextsOfThePope({ language }) {
+function TextsOfThePope({ language, setDocumentTitle }) {
 
+    setDocumentTitle(GetStrLocalized(language, "textsOfThePope") + " - Holy Chatter");
 	const parentFolders = [
 		{
 			path: GetStrLocalized(language, "readingsFolderName"),

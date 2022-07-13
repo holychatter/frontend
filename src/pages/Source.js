@@ -8,7 +8,7 @@ import BigButtonsWithTextABottom from '../components/bigButton/BigButtonsWithTex
 import GetStrLocalized from "../datas/GetStrLocalized"
 
 
-function Source({ language, backendUrl }) {
+function Source({ language, setDocumentTitle, backendUrl }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
@@ -29,6 +29,7 @@ function Source({ language, backendUrl }) {
 			const response = await fetch(wtUrl);
 			const jsonData = await response.json();
 			setRequest(jsonData);
+			setDocumentTitle(jsonData.name + " - Holy Chatter");
 		};
 		getBackendWithFetch();
 	}

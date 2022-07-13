@@ -8,7 +8,7 @@ function BigButtonsWithTextABottom({ videos }) {
 			{
 				videos &&
 				videos.map((videoItem, videoIndex) => {
-					return <BigButtonWithTextABottom key={videoIndex} link={videoItem.link} image={videoItem.image} duration={videoItem.duration} title={videoItem.title} tags={videoItem.tags} sourceImage={videoItem.sourceImage} sourceName={videoItem.sourceName} beginOfClassName="hc-big-button-normal" />
+					return <BigButtonWithTextABottom key={videoIndex} link={videoItem.link} image={videoItem.image} duration={videoItem.duration} title={videoItem.title} tags={videoItem.subTitle} sourceImage={videoItem.sourceImage} sourceName={videoItem.sourceName} beginOfClassName="hc-big-button-normal" />
 				})
 			}
 		</React.Fragment>

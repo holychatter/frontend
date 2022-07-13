@@ -11,7 +11,9 @@ import H2TitleId from '../components/title/H2TitleId'
 import { Link } from "react-router-dom"
 
 
-function About({ language }) {
+function About({ language, setDocumentTitle }) {
+
+    setDocumentTitle(GetStrLocalized(language, "about") + " - Holy Chatter");
 
     return (
         <PageContent>

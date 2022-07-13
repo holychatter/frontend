@@ -8,7 +8,7 @@ import CategoriesBigButtons from "../components/bigButton/CategoriesBigButtons"
 
 
 
-function CatechismOfTheCatholicChurch({ language, backendUrl }) {
+function CatechismOfTheCatholicChurch({ language, setDocumentTitle, backendUrl }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
@@ -33,6 +33,10 @@ function CatechismOfTheCatholicChurch({ language, backendUrl }) {
 			const response = await fetch(wtUrl);
 			const jsonData = await response.json();
 			setRequest(jsonData);
+			if (cccSubFolder === "")
+				setDocumentTitle(GetStrLocalized(language, "catechismOfTheCatholicChurch") + " - Holy Chatter");
+			else
+				setDocumentTitle(jsonData.title + " - " + GetStrLocalized(language, "catechismOfTheCatholicChurch"));
 			setParentFolders([
 				readingPartOfBreadcrumb,
 				...jsonData.breadcrumb

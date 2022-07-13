@@ -5,9 +5,9 @@ import BigButtonWithTextABottom from "../components/bigButton/BigButtonWithTextA
 import GetStrLocalized from "../datas/GetStrLocalized"
 import GetHtmlStrLocalized from "../datas/GetHtmlStrLocalized"
 
-function Readings({ language }) {
+function Readings({ language, setDocumentTitle }) {
 
-
+    setDocumentTitle(GetStrLocalized(language, "readings") + " - Holy Chatter");
 	function SmallYoutubePlayer({ videoId }) {
 		return <iframe className="hc-big-button-normal-height hc-big-button-normal-width hc-small-margin" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen frameBorder="0"
 			src={"https://www.youtube.com/embed/" + videoId + "?rel=0"} title={"Video  " + videoId} align="top" style={{ marginLeft: '50px' }}></iframe>
@@ -16,6 +16,7 @@ function Readings({ language }) {
 	const cccPath = "/" + language + "/" + GetStrLocalized(language, "readingsFolderName") + "/" + GetStrLocalized(language, "catechismOfTheCatholicChurchFolderName")
 	const textsOfThePopePath = "/" + language + "/" + GetStrLocalized(language, "readingsFolderName") + "/" + GetStrLocalized(language, "textsOfThePopeFolderName")
     const theSocialDoctrineOfTheChurchUrl = GetStrLocalized(language, "theSocialDoctrineOfTheChurchUrl")
+
 
 	return (
 		<PageContent>

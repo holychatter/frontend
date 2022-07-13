@@ -38,7 +38,7 @@ function Article({ language, setDocumentTitle, backendUrl }) {
 				const response = await fetch(wtUrl);
 				const jsonData = await response.json();
 				setRequest(jsonData);
-				setDocumentTitle(jsonData.name + " – " + jsonData.sourceName);
+				setDocumentTitle(jsonData.name + " - " + jsonData.sourceName);
 				setCookies('messageIds', jsonData.messageIds, { path: '/' + language });
 				setCookies('allRecommendationIds', jsonData.allRecommendationIds, { path: '/' + language });
 			};

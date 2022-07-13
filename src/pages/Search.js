@@ -4,10 +4,11 @@ import { useLocation } from "react-router-dom"
 import PageContent from '../components/util/PageContent'
 import H1TitleId from '../components/title/H1TitleId'
 import BigButtonWithTextAtRight from '../components/bigButton/BigButtonWithTextAtRight'
+import GetStrLocalized from '../datas/GetStrLocalized'
 
 
 
-function Search({ language, backendUrl, setSearchValue }) {
+function Search({ language, setDocumentTitle, backendUrl, setSearchValue }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
@@ -20,6 +21,7 @@ function Search({ language, backendUrl, setSearchValue }) {
 		if (foldersArray.length > 3) {
 			query = foldersArray[3]
 		}
+		setDocumentTitle(query + " - " + GetStrLocalized(language, "holyChatterSearch"));
 
 		const wtUrl = backendUrl + "/search_content_json?l=" + language + "&q=" + query;
 		console.log("Request url: " + wtUrl);

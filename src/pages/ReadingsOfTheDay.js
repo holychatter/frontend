@@ -4,10 +4,11 @@ import H1Title from "../components/title/H1Title";
 import H2Title from "../components/title/H2Title";
 import PageContent from '../components/util/PageContent'
 import ReadingContent from "../components/util/ReadingContent";
+import GetStrLocalized from "../datas/GetStrLocalized";
 
 
 
-function ReadingsOfTheDay({ language, backendUrl, readingsType }) {
+function ReadingsOfTheDay({ language, setDocumentTitle, backendUrl, readingsType }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("");
@@ -29,6 +30,10 @@ function ReadingsOfTheDay({ language, backendUrl, readingsType }) {
 			const response = await fetch(wtUrl);
 			const jsonData = await response.json();
 			setRequest(jsonData);
+			var title = jsonData.title
+			if (dateFolder === "")
+				title = GetStrLocalized(language, readingsType === "gospel" ? "gospelOfTheDay" : "readingsOfTheDay")
+			setDocumentTitle(title + " - Holy Chatter");
 		};
 		getBackendWithFetch();
 	}

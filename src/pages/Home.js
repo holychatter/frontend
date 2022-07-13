@@ -10,8 +10,9 @@ import { useCookies } from 'react-cookie'
 
 
 
-function Home({ language, backendUrl }) {
+function Home({ language, setDocumentTitle, backendUrl }) {
 
+	setDocumentTitle("Holy Chatter");
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
 	const [request, setRequest] = useState({ recommendations: [], categories: [], recentVideos: [], recentChatMessages: [] })

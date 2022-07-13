@@ -4,10 +4,12 @@ import { useLocation } from "react-router-dom"
 import H1Title from '../components/title/H1Title'
 import PageContent from '../components/util/PageContent'
 import BigButtonWithTextABottom from "../components/bigButton/BigButtonWithTextABottom"
+import GetStrLocalized from '../datas/GetStrLocalized'
 
 
-function Sources({ language, backendUrl }) {
+function Sources({ language, setDocumentTitle, backendUrl }) {
 
+	setDocumentTitle(GetStrLocalized(language, "sources") + " - Holy Chatter");
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
 	const [request, setRequest] = useState({ sources: [] })

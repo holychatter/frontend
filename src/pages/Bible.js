@@ -16,7 +16,7 @@ import CategoriesBigButtons from '../components/bigButton/CategoriesBigButtons'
 
 
 
-function Bible({ language, backendUrl }) {
+function Bible({ language, setDocumentTitle, backendUrl }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
@@ -71,6 +71,7 @@ function Bible({ language, backendUrl }) {
 				const response = await fetch(wtUrl);
 				const jsonData = await response.json();
 				setTestamentRequest(jsonData);
+				setDocumentTitle(GetStrLocalized(language, typeOfPageLocal === TypeOfRequest_OLD_TESTAMENT ? "oldTestament" : "newTestament") + " - " + GetStrLocalized(language, "bible"));
 			};
 			getBackendTestamentWithFetch();
 		} else if (typeOfPageLocal === TypeOfRequest_BIBLE_CONTENT) {
@@ -80,6 +81,7 @@ function Bible({ language, backendUrl }) {
 				const response = await fetch(wtUrl);
 				const jsonData = await response.json();
 				setContentRequest(jsonData);
+				setDocumentTitle(jsonData.title + " - " + GetStrLocalized(language, "bible"));
 				setParentFolders([
 					readingPartOfBreadcrumb,
 					biblePartOfBreadcrumb,
@@ -88,6 +90,7 @@ function Bible({ language, backendUrl }) {
 			};
 			getBackendCategoriesWithFetch();
 		} else {
+			setDocumentTitle(GetStrLocalized(language, "bible") + " - Holy Chatter");
 			setParentFolders([readingPartOfBreadcrumb]);
 		}
 	}
@@ -125,7 +128,7 @@ function Bible({ language, backendUrl }) {
 			{
 				(typeOfPage === TypeOfRequest_OLD_TESTAMENT || typeOfPage === TypeOfRequest_NEW_TESTAMENT) &&
 				<React.Fragment>
-					<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{GetStrLocalized(language, typeOfPage === TypeOfRequest_OLD_TESTAMENT ? "oldTestament" : "newTestament")}</H1TitleBreadcrumb>
+					<H1TitleBreadcrumb language={language} parentFolders={parentFolders}>{GetStrLocalized(language, typeOfPageLocal === TypeOfRequest_OLD_TESTAMENT ? "oldTestament" : "newTestament")}</H1TitleBreadcrumb>
 					<br /><br />
 
 					<CategoriesBigButtons categories={testamentRequest.categories} />

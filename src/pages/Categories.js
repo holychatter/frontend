@@ -11,7 +11,7 @@ import PageContent from '../components/util/PageContent'
 import CategoriesBigButtons from '../components/bigButton/CategoriesBigButtons'
 import Bubbles from '../components/chatbot/Bubbles'
 
-function Categories({ language, backendUrl }) {
+function Categories({ language, setDocumentTitle, backendUrl }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("");
@@ -32,6 +32,7 @@ function Categories({ language, backendUrl }) {
 			const response = await fetch(wtUrl);
 			const jsonData = await response.json();
 			setRequest(jsonData);
+			setDocumentTitle(jsonData.name + " - Holy Chatter");
 		};
 		getBackendWithFetch();
 	}

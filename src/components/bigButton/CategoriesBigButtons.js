@@ -2,7 +2,7 @@ import React from 'react'
 import BigButtonWithTextABottom from './BigButtonWithTextABottom'
 
 
-function CategoriesBigButtons({ categories }) {
+function CategoriesBigButtons({ categories, beginOfKey="" }) {
 
 	return (
 		<div className="hc-categories-left-margin">
@@ -13,7 +13,7 @@ function CategoriesBigButtons({ categories }) {
 				{
 					categories.map((item, index) => {
 						return (
-							<BigButtonWithTextABottom key={"categories-btn-" + index} link={item.link} image={item.image} duration={item.duration} title={item.title} tags={item.subTitle} sourceImage={item.sourceImage} sourceName={item.sourceName} beginOfClassName="hc-big-button-normal" />
+							<BigButtonWithTextABottom key={beginOfKey + "categories-btn-" + index} link={item.link} image={item.image} duration={item.duration} title={item.title} tags={item.subTitle} sourceImage={item.sourceImage} sourceName={item.sourceName} beginOfClassName="hc-big-button-normal" />
 						)
 					})
 				}

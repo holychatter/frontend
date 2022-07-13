@@ -7,10 +7,13 @@ import GetInnerHtmlStrLocalized from '../datas/GetInnerHtmlStrLocalized'
 import PageContent from '../components/util/PageContent'
 import H1TitleId from '../components/title/H1TitleId'
 import LinkToModal from '../components/modal/LinkToModal'
+import GetStrLocalized from '../datas/GetStrLocalized'
 
 
 
-function ChristianMessage({ language }) {
+function ChristianMessage({ language, setDocumentTitle }) {
+
+    setDocumentTitle(GetStrLocalized(language, "christianMessage") + " - Holy Chatter");
 
     return (
         <PageContent>

@@ -34,7 +34,13 @@ const TranslationsEn = {
     "theSocialDoctrineOfTheChurchUrl": "http://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_en.html",
     "readings": "Readings",
     "oldTestament": "Old testament",
-    "newTestament": "New testament"
+    "newTestament": "New testament",
+    "about": "About",
+    "holyChatterSearch": "Holy Chatter Search",
+    "readingsOfTheDay": "Readings of the day",
+    "gospelOfTheDay": "Gospel of the day",
+    "sources": "Sources",
+    "christianMessage": "Christian message"
 };
 
 const TranslationsFr = {
@@ -72,7 +78,13 @@ const TranslationsFr = {
     "theSocialDoctrineOfTheChurchUrl": "http://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_fr.html",
     "readings": "Lectures",
     "oldTestament": "Ancien testament",
-    "newTestament": "Nouveau testament"
+    "newTestament": "Nouveau testament",
+    "about": "A propos",
+    "holyChatterSearch": "Recherche Holy Chatter",
+    "readingsOfTheDay": "Lectures du jour",
+    "gospelOfTheDay": "Évangile du jour",
+    "sources": "Sources",
+    "christianMessage": "Message chrétien"
 };
 
 
