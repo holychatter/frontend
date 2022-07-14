@@ -1,6 +1,6 @@
 import About from './pages/About'
-import Banner from './components/Banner'
-import HCNavBar from './components/HCNavBar'
+import Banner from './components/banner/Banner'
+import HCNavBar from './components/navigation/HCNavBar'
 import Chatbot from './pages/Chatbot'
 import Categories from './pages/Categories'
 import ChristianMessage from './pages/ChristianMessage'
@@ -47,7 +47,7 @@ function App() {
 					<Route path={GetStrLocalized("fr", "categoriesFolderName") + "/*"} element={<Categories language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("fr", "chatbotFolderName")} element={<Chatbot language="fr" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("fr", "aboutFolderName")} element={<About language="fr" setDocumentTitle={setDocumentTitle} />}></Route>
-					<Route path={GetStrLocalized("fr", "searchFolderName") + "/*"} element={<Search language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} setSearchValue={setSearchValue} />}></Route>
+					<Route path={GetStrLocalized("fr", "searchFolderName") + "/*"} element={<Search language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} searchValue={searchValue} setSearchValue={setSearchValue} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsFolderName")} element={<Readings language="fr" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsFolderName") + "/" + GetStrLocalized("fr", "bibleFolderName") + "/*"} element={<Bible language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsFolderName") + "/" + GetStrLocalized("fr", "catechismOfTheCatholicChurchFolderName") + "/*"} element={<CatechismOfTheCatholicChurch language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
@@ -65,7 +65,7 @@ function App() {
 					<Route path={GetStrLocalized("en", "categoriesFolderName") + "/*"} element={<Categories language="en" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("en", "chatbotFolderName")} element={<Chatbot language="en" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("en", "aboutFolderName")} element={<About language="en" setDocumentTitle={setDocumentTitle} />}></Route>
-					<Route path={GetStrLocalized("en", "searchFolderName") + "/*"} element={<Search language="en" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} setSearchValue={setSearchValue} />}></Route>
+					<Route path={GetStrLocalized("en", "searchFolderName") + "/*"} element={<Search language="en" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} searchValue={searchValue} setSearchValue={setSearchValue} />}></Route>
 					<Route path={GetStrLocalized("en", "readingsFolderName")} element={<Readings language="en" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("en", "readingsFolderName") + "/" + GetStrLocalized("en", "bibleFolderName") + "/*"} element={<Bible language="en" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("en", "readingsFolderName") + "/" + GetStrLocalized("en", "catechismOfTheCatholicChurchFolderName") + "/*"} element={<CatechismOfTheCatholicChurch language="en" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>

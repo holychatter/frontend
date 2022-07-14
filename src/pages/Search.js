@@ -5,10 +5,11 @@ import PageContent from '../components/util/PageContent'
 import H1TitleId from '../components/title/H1TitleId'
 import BigButtonWithTextAtRight from '../components/bigButton/BigButtonWithTextAtRight'
 import GetStrLocalized from '../datas/GetStrLocalized'
+import SearchInput from '../components/banner/SearchInput'
 
 
 
-function Search({ language, setDocumentTitle, backendUrl, setSearchValue }) {
+function Search({ language, setDocumentTitle, backendUrl, searchValue, setSearchValue }) {
 
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
@@ -38,9 +39,16 @@ function Search({ language, setDocumentTitle, backendUrl, setSearchValue }) {
 	return (
 		<PageContent>
 			<H1TitleId language={language} titleId="search" />
-			<br /><br />
+			<br />
 
-			<div className="hc-left-a-search">
+			<div className="hc-very-short-screen">
+				<SearchInput language={language} searchValue={searchValue} />
+				<br />
+			</div>
+			<br />
+
+
+			<div className="hc-search-result-paddings">
 				{
 					request.videos !== "" &&
 					request.videos.map((item, index) => {

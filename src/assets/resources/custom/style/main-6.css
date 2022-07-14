@@ -36,7 +36,7 @@
   height: 37px;
   padding-top:1px;
 }
-.hc-left-a-search { padding-left: 250px; }
+.hc-search-result-paddings { padding-left: 250px; padding-right: 50px; }
 
 .hc-big-button-chat-width { width:270px; }
 .hc-big-button-chat-height { height:150px; }
@@ -270,7 +270,7 @@
 }
 .hc-top-bar-sides-css { width: 50%; padding-left:30px; padding-right:30px; }
 .hc-top-bar-center-css { width: 0%; padding-left:0px; padding-right:0px; }
-.hc-left-a-search { padding-left: 10px; }
+.hc-search-result-paddings { padding-left: 15px; padding-right: 15px; }
 .hc-big-button-search-width { width:135px; }
 .hc-big-button-search-height { height:75px; }
 .hc-big-button-search-durationtop { top:43px; }
@@ -299,7 +299,7 @@
 
 
 @media screen and (min-width: 851px) and (max-width: 1100px) {
-.hc-left-a-search { padding-left: 100px; }
+.hc-search-result-paddings { padding-left: 100px; padding-right: 30px; }
 }
 
 
