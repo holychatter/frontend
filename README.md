@@ -20,19 +20,39 @@ You will also see any lint errors in the console.
 
 ## Deploy
 
-Build the frontend:
+Build and make an archive of the frontend:
 
-`yarn build`
+`sh build_and_compress.sh`
 
 
 Copy the frontend to the server
 
-`scp -r build root@<server_ip>:/var/www/html/build`
+`scp -r build.zip root@<server_ip>:/var/www/html/`
 
 
 Open a terminal in the server
 
 `ssh root@<server_ip>`
+
+
+Go to html directory:
+
+`cd /var/www/html/`
+
+
+Remove the previous build:
+
+`rm -fr build`
+
+
+Unzip de build folder:
+
+`unzip build.zip`
+
+
+Remove the archive:
+
+`rm build.zip`
 
 
 Go to sites-available directory:
@@ -69,23 +89,6 @@ Add the following snippet:
        Require all granted
 
 </Directory>
-```
-
-
-Make a file inside /var/www/html/build: (to add entry points from any paths)
-
-
-`sudo nano .htaccess`
-
-
-```
-Options -MultiViews
-    
-RewriteEngine On
-    
-RewriteCond %{REQUEST_FILENAME} !-f
-
-RewriteRule ^ index.html [QSA,L]
 ```
 
 
