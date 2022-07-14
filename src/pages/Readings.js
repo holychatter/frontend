@@ -29,11 +29,11 @@ function Readings({ language, setDocumentTitle }) {
 						<td style={{ width: '33%', paddingLeft: '5px', paddingRight: '15px' }}>
 							<BigButtonWithTextABottom link={biblePath} image="/buttons/bible.jpg" duration="" title={GetStrLocalized(language, "bible")} tags="" sourceImage="" sourceName="" beginOfClassName="hc-big-button-normal" />
 						</td>
-						<td style={{ width: '33%', paddingLeft: '15px', paddingRight: '15px' }}>
+						<td className="hc-long-screen" style={{ width: '33%', paddingLeft: '15px', paddingRight: '15px' }}>
 							<SmallYoutubePlayer videoId={language === "fr" ? "pYYIYRhlVoI" : "ak06MSETeo4"} />
 						</td>
-						<td style={{ width: '34%', paddingLeft: '15px', paddingRight: '5px' }}>
-							<div className="hc-long-screen hc-content-text">
+						<td className="hc-long-screen hc-content-text" style={{ width: '34%', paddingLeft: '15px', paddingRight: '5px' }}>
+							<div>
 								<div className='hc-small-margin' style={{ paddingTop: '10px', paddingLeft: '10px' }}><b><GetHtmlStrLocalized language={language} textId="plan" /></b><br /></div>
 								<div className='hc-small-margin' style={{ paddingTop: '5px', paddingLeft: '10px' }}><a href={biblePath + "/" + GetStrLocalized(language, "oldTestamentFolderName")}>1) <GetHtmlStrLocalized language={language} textId="oldTestament" /></a><br /></div>
 								<div className='hc-small-margin' style={{ paddingTop: '5px', paddingLeft: '10px' }}><a href={biblePath + "/" + GetStrLocalized(language, "newTestamentFolderName")}>2) <GetHtmlStrLocalized language={language} textId="newTestament" /></a><br /></div>
@@ -45,11 +45,11 @@ function Readings({ language, setDocumentTitle }) {
 						<td style={{ width: '33%', paddingLeft: '5px', paddingRight: '15px' }}>
 							<BigButtonWithTextABottom link={cccPath} image="/buttons/rosace.jpg" duration="" title={GetStrLocalized(language, "catechismOfTheCatholicChurch")} tags="" sourceImage="" sourceName="" beginOfClassName="hc-big-button-normal" />
 						</td>
-						<td style={{ width: '33%', paddingLeft: '15px', paddingRight: '15px' }}>
+						<td className="hc-long-screen" style={{ width: '33%', paddingLeft: '15px', paddingRight: '15px' }}>
 							<SmallYoutubePlayer videoId={language === "fr" ? "65XIj6HiVag" : "MhScAGLQBEU"} />
 						</td>
-						<td style={{ width: '34%', paddingLeft: '15px', paddingRight: '5px' }}>
-							<div className="hc-long-screen hc-content-text">
+						<td className="hc-long-screen hc-content-text" style={{ width: '34%', paddingLeft: '15px', paddingRight: '5px' }}>
+							<div>
 								<div className='hc-small-margin' style={{ paddingTop: '10px', paddingLeft: '10px' }}><b><GetHtmlStrLocalized language={language} textId="plan" /></b><br /></div>
 								<div className='hc-small-margin' style={{ paddingLeft: '10px' }}><a href={cccPath + "/" + GetStrLocalized(language, "prologueFolderName")}>1) <GetHtmlStrLocalized language={language} textId="prologue" /></a><br /></div>
 								<div className='hc-small-margin' style={{ paddingLeft: '10px' }}><a href={cccPath + "/" + GetStrLocalized(language, "theProfessionOfFaithFolderName")}>2) <GetHtmlStrLocalized language={language} textId="theProfessionOfFaith" /></a><br /></div>
@@ -65,11 +65,11 @@ function Readings({ language, setDocumentTitle }) {
 						<td style={{ width: '33%', paddingLeft: '5px', paddingRight: '15px' }}>
 							<BigButtonWithTextABottom link={textsOfThePopePath} image="/buttons/pope_writing.jpg" duration="" title={GetStrLocalized(language, "textsOfThePope")} tags="" sourceImage="" sourceName="" beginOfClassName="hc-big-button-normal" />
 						</td>
-						<td style={{ width: '33%', paddingLeft: '15px', paddingRight: '15px' }}>
+						<td className="hc-long-screen" style={{ width: '33%', paddingLeft: '15px', paddingRight: '15px' }}>
 							{language === "fr" && <SmallYoutubePlayer videoId="QQEbU_VLAhs" />}
 						</td>
-						<td style={{ width: '34%', paddingLeft: '15px', paddingRight: '5px' }}>
-							<div className="hc-long-screen hc-content-text">
+						<td className="hc-long-screen hc-content-text" style={{ width: '34%', paddingLeft: '15px', paddingRight: '5px' }}>
+							<div>
 								<div className='hc-small-margin' style={{ paddingTop: '10px', paddingLeft: '10px' }}><b><GetHtmlStrLocalized language={language} textId="examples" /></b><br /></div>
 								<div className='hc-small-margin' style={{ paddingLeft: '10px' }}><a href={textsOfThePopePath}><GetHtmlStrLocalized language={language} textId="encyclicLetterPatrisCorde" /></a><br /></div>
 								{language === "fr" && <div className='hc-small-margin' style={{ paddingLeft: '10px' }}><a href={textsOfThePopePath}><GetHtmlStrLocalized language={language} textId="encyclicalFratelliTutti" /></a><br /></div>}
@@ -84,7 +84,7 @@ function Readings({ language, setDocumentTitle }) {
 			<br />
 			<div style={{ paddingLeft: '20px' }}>
 				<b className='hc-button-title-style'><GetHtmlStrLocalized language={language} textId="theSocialDoctrineOfTheChurch" /></b><br />
-				<a href={theSocialDoctrineOfTheChurchUrl}>{theSocialDoctrineOfTheChurchUrl}</a>
+				<a href={theSocialDoctrineOfTheChurchUrl} style={{ wordWrap: 'break-word' }}>{theSocialDoctrineOfTheChurchUrl}</a>
 			</div>
 
 
