@@ -20,13 +20,13 @@ function About({ language, setDocumentTitle }) {
             <H1TitleId language={language} titleId="about" />
             <br /><br />
 
-            <div className='hc-content-text' style={{ marginLeft: 80 }}>
+            <div className='hc-content-text hc-content-text-paddings'>
                 <GetInnerHtmlStrLocalized language={language} textId="aboutHolyChatterContent" />
             </div>
             <br /><br />
             <H2TitleId language={language} titleId="recipientsOfTheSite" />
             <br />
-            <div className='hc-content-text' style={{ marginLeft: 80 }}>
+            <div className='hc-content-text hc-content-text-paddings'>
                 <GetInnerHtmlStrLocalized language={language} textId="forWhoContent" />
                 <Link to={"/" + language + "/" + GetStrLocalized(language, "chatbotFolderName")}><GetHtmlStrLocalized language={language} textId="readyToChat" /></Link>
             </div>

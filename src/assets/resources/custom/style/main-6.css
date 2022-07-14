@@ -56,7 +56,11 @@
   font-weight:400;
 }
 
-
+.hc-content-text-paddings
+{
+  margin-left: 80px;
+  margin-right: 80px;
+}
 
 
 .hc-fixed-banner {
@@ -278,6 +282,11 @@
   max-width:730px;
   margin:0 auto;
   font-weight:400;
+}
+.hc-content-text-paddings
+{
+  margin-left: 40px;
+  margin-right: 40px;
 }
 .hc-edit-content-left-space-offset {
   left: 0px;
