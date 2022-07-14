@@ -9,7 +9,7 @@ import Source from './pages/Source'
 import Sources from './pages/Sources'
 import GetStrLocalized from './datas/GetStrLocalized'
 import React from 'react'
-import { Navigate, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Helmet } from "react-helmet"
