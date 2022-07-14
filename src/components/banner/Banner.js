@@ -1,11 +1,11 @@
 import '../../assets/resources/custom/style/main-6.css'
 import '../../assets/resources/custom/style/bootstrap_hc.css'
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import image_logo from '../../assets/upload/holy_chatter_logo.png'
 import image_youtube from '../../assets/resources/custom/images/youtube.png'
-import image_magnifying_glass from '../../assets/resources/custom/images/magnifying_glass.jpg'
+import image_magnifying_glass from '../../assets/resources/custom/images/magnifying_glass.png'
 import GetStrLocalized from '../../datas/GetStrLocalized'
-import React, { useRef } from 'react'
+import React from 'react'
 import OpenNav from '../navigation/OpenNav'
 import CloseNav from '../navigation/CloseNav'
 import SearchInput from './SearchInput';

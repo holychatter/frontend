@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import image_house from '../../assets/resources/custom/navbar_icons/house.png'
-import image_chatbot from '../../assets/resources/custom/navbar_icons/chatbot.jpg'
-import image_bible from '../../assets/resources/custom/navbar_icons/bible.jpg'
-import image_sources from '../../assets/resources/custom/navbar_icons/sources.jpg'
+import image_chatbot from '../../assets/resources/custom/navbar_icons/chatbot.png'
+import image_bible from '../../assets/resources/custom/navbar_icons/bible.png'
+import image_sources from '../../assets/resources/custom/navbar_icons/sources.png'
 import image_englishFlag from '../../assets/resources/custom/navbar_icons/england.png'
 import image_frenchFlag from '../../assets/resources/custom/navbar_icons/france.png'
 import image_profil from '../../assets/resources/custom/navbar_icons/profil.png'

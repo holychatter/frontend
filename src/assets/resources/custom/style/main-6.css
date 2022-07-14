@@ -663,8 +663,8 @@ h1 {
 }
 
 .hc-search-btn {
-  background-image:url('../images/magnifying_glass.png');
-  background-size: 28px 19px;
+  background-image:url('../images/magnifying_glass_white.png');
+  background-size: 23px 23px;
   background-repeat: no-repeat;
   background-position: center center;
 }
