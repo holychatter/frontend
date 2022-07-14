@@ -24,7 +24,7 @@ import EmbeddedChatbot from './components/chatbot/EmbeddedChatbot'
 import NavigateTowardDefaultLanguage from './pages/NavigateTowardDefaultLanguage'
 
 function App() {
-	const backendUrl = "http://127.0.0.1:8080"
+	const backendUrl = "https://holychatter.com:445"
 	const location = useLocation();
 	const [language, setLanguage] = useState(location.pathname.length >= 3 ? location.pathname.substring(1, 3) : "en")
 	const [documentTitle, setDocumentTitle] = useState("Holy Chatter")
