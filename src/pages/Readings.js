@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import H1TitleId from "../components/title/H1TitleId"
 import PageContent from '../components/util/PageContent'
 import BigButtonWithTextABottom from "../components/bigButton/BigButtonWithTextABottom"
@@ -7,15 +7,18 @@ import GetHtmlStrLocalized from "../datas/GetHtmlStrLocalized"
 
 function Readings({ language, setDocumentTitle }) {
 
-    setDocumentTitle(GetStrLocalized(language, "readings") + " - Holy Chatter");
+	useEffect(() => {
+		setDocumentTitle(GetStrLocalized(language, "readings") + " - Holy Chatter");
+	}, [setDocumentTitle, language]);
+
 	function SmallYoutubePlayer({ videoId }) {
-		return <iframe className="hc-big-button-normal-height hc-big-button-normal-width hc-small-margin" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen frameBorder="0"
+		return <iframe className="hc-big-button-normal-height hc-big-button-normal-width hc-small-margin" allowFullScreen frameBorder="0"
 			src={"https://www.youtube.com/embed/" + videoId + "?rel=0"} title={"Video  " + videoId} align="top" style={{ marginLeft: '50px' }}></iframe>
 	}
 	const biblePath = "/" + language + "/" + GetStrLocalized(language, "readingsFolderName") + "/" + GetStrLocalized(language, "bibleFolderName")
 	const cccPath = "/" + language + "/" + GetStrLocalized(language, "readingsFolderName") + "/" + GetStrLocalized(language, "catechismOfTheCatholicChurchFolderName")
 	const textsOfThePopePath = "/" + language + "/" + GetStrLocalized(language, "readingsFolderName") + "/" + GetStrLocalized(language, "textsOfThePopeFolderName")
-    const theSocialDoctrineOfTheChurchUrl = GetStrLocalized(language, "theSocialDoctrineOfTheChurchUrl")
+	const theSocialDoctrineOfTheChurchUrl = GetStrLocalized(language, "theSocialDoctrineOfTheChurchUrl")
 
 
 	return (

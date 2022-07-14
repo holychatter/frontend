@@ -1,5 +1,5 @@
 import '../assets/resources/custom/style/sources-0.css'
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 import PageContent from '../components/util/PageContent'
 import H1TitleId from '../components/title/H1TitleId'
@@ -12,7 +12,10 @@ import { useCookies } from 'react-cookie'
 
 function Home({ language, setDocumentTitle, backendUrl }) {
 
-	setDocumentTitle("Holy Chatter");
+	useEffect(() => {
+		setDocumentTitle("Holy Chatter");
+	}, [setDocumentTitle]);
+
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
 	const [request, setRequest] = useState({ recommendations: [], categories: [], recentVideos: [], recentChatMessages: [] })

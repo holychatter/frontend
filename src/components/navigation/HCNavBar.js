@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom"
 import image_house from '../../assets/resources/custom/navbar_icons/house.png'
 import image_chatbot from '../../assets/resources/custom/navbar_icons/chatbot.png'
@@ -31,7 +31,7 @@ function HCNavBar({ language, setLanguage, location, backendUrl }) {
 				<Link to={"/" + language + "/" + GetStrLocalized(language, "readingsFolderName")} onClick={CloseNav}><img style={{marginLeft: 20}} width='20px' src={image_bible} alt="Bible" /><span className='hc-sidebar-text'><GetHtmlStrLocalized language={language} textId="readings" /></span></Link>
 				<Link to={"/" + language + "/" + GetStrLocalized(language, "readingsOfTheDayFolderName")} onClick={CloseNav}><img style={{marginLeft: 20}} width='20px' src={image_bible} alt="Bible" /><span className='hc-sidebar-text hc-sidebar-text-sub'><GetHtmlStrLocalized language={language} textId="readingsOfTheDay" /></span></Link>
 				<Link to={"/" + language + "/" + GetStrLocalized(language, "sourcesFolderName")} onClick={CloseNav}><img style={{marginLeft: 20}} width='20px' src={image_sources} alt="sources" /><span className='hc-sidebar-text'><GetHtmlStrLocalized language={language} textId="sources" /></span></Link>
-				<Link to={"/" + otherLanguage} onClick={() => setLanguage(otherLanguage)} onClick={CloseNav}><img style={{marginLeft: 20}} width='20px' src={image_otherLanguageFlag} alt="flag" /><span className='hc-sidebar-text'><GetHtmlStrLocalized language={language} textId="goToTheOtherLanguageVersion" /></span></Link>
+				<Link to={"/" + otherLanguage} onClick={() => { CloseNav(); setLanguage(otherLanguage); }}><img style={{marginLeft: 20}} width='20px' src={image_otherLanguageFlag} alt="flag" /><span className='hc-sidebar-text'><GetHtmlStrLocalized language={language} textId="goToTheOtherLanguageVersion" /></span></Link>
 				<Link to={"/" + language + "/" + GetStrLocalized(language, "aboutFolderName")} onClick={CloseNav}><img style={{marginLeft: 20}} width='20px' src={image_profil} alt="profil" /><span className='hc-sidebar-text'><GetHtmlStrLocalized language={language} textId="about" /></span></Link>
 				<a href={backendUrl + '/edit' + location.pathname}><img style={{marginLeft: 20}} width='20px' src={image_manage} alt="profil" /><span className='hc-sidebar-text'><GetHtmlStrLocalized language={language} textId="manage" /></span></a>
 				<br/><br/><br/><br/><br/><br/>

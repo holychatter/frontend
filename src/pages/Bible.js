@@ -1,5 +1,5 @@
 import '../assets/resources/custom/style/chapters.css'
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import GetStrLocalized from '../datas/GetStrLocalized'
 import H1TitleBreadcrumb from '../components/title/H1TitleBreadcrumb'
 import PageContent from '../components/util/PageContent'
@@ -41,6 +41,10 @@ function Bible({ language, setDocumentTitle, backendUrl }) {
 		name: GetStrLocalized(language, "bible")
 	}
 
+	useEffect(() => {
+		setDocumentTitle(GetStrLocalized(language, "bible") + " - Holy Chatter");
+	}, [setDocumentTitle, language]);
+
 	if (location.pathname !== lastPath) {
 		setLastPath(location.pathname);
 		const foldersArray = location.pathname.split('/');
@@ -56,6 +60,7 @@ function Bible({ language, setDocumentTitle, backendUrl }) {
 				typeOfPageLocal = TypeOfRequest_BIBLE_CONTENT
 			}
 		}
+
 
 		setTypeOfPage(typeOfPageLocal)
 		if (typeOfPageLocal === TypeOfRequest_OLD_TESTAMENT ||
@@ -90,7 +95,6 @@ function Bible({ language, setDocumentTitle, backendUrl }) {
 			};
 			getBackendCategoriesWithFetch();
 		} else {
-			setDocumentTitle(GetStrLocalized(language, "bible") + " - Holy Chatter");
 			setParentFolders([readingPartOfBreadcrumb]);
 		}
 	}

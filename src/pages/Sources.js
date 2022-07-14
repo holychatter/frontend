@@ -1,5 +1,5 @@
 import '../assets/resources/custom/style/sources-0.css'
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 import H1Title from '../components/title/H1Title'
 import PageContent from '../components/util/PageContent'
@@ -9,7 +9,10 @@ import GetStrLocalized from '../datas/GetStrLocalized'
 
 function Sources({ language, setDocumentTitle, backendUrl }) {
 
-	setDocumentTitle(GetStrLocalized(language, "sources") + " - Holy Chatter");
+	useEffect(() => {
+		setDocumentTitle(GetStrLocalized(language, "sources") + " - Holy Chatter");
+	}, [setDocumentTitle, language]);
+
 	const location = useLocation();
 	const [lastPath, setLastPath] = useState("")
 	const [request, setRequest] = useState({ sources: [] })
@@ -27,6 +30,7 @@ function Sources({ language, setDocumentTitle, backendUrl }) {
 		getBackendWithFetch();
 	}
 
+
 	return (
 		<PageContent>
 			<H1Title>Sources</H1Title>
@@ -36,7 +40,7 @@ function Sources({ language, setDocumentTitle, backendUrl }) {
 				{
 					request.sources !== "" &&
 					request.sources.map((item, index) => {
-						return <BigButtonWithTextABottom key={index} link={item.nameForUrl} image={item.icon} duration="" title={item.name} tags="" sourceImage="" sourceName=""  beginOfClassName="hc-big-button-source" />
+						return <BigButtonWithTextABottom key={index} link={item.nameForUrl} image={item.icon} duration="" title={item.name} tags="" sourceImage="" sourceName="" beginOfClassName="hc-big-button-source" />
 					})
 				}
 			</div>

@@ -21,18 +21,22 @@ function Search({ language, setDocumentTitle, backendUrl, searchValue, setSearch
 		const foldersArray = location.pathname.split('/');
 		if (foldersArray.length > 3) {
 			query = foldersArray[3]
-		}
-		setDocumentTitle(query + " - " + GetStrLocalized(language, "holyChatterSearch"));
 
-		const wtUrl = backendUrl + "/search_content_json?l=" + language + "&q=" + query;
-		console.log("Request url: " + wtUrl);
-		const getBackendWithFetch = async () => {
-			const response = await fetch(wtUrl);
-			const jsonData = await response.json();
-			setSearchValue(query);
-			setRequest(jsonData);
-		};
-		getBackendWithFetch();
+			setDocumentTitle(query + " - " + GetStrLocalized(language, "holyChatterSearch"));
+			const wtUrl = backendUrl + "/search_content_json?l=" + language + "&q=" + query;
+			console.log("Request url: " + wtUrl);
+			const getBackendWithFetch = async () => {
+				const response = await fetch(wtUrl);
+				const jsonData = await response.json();
+				setSearchValue(query);
+				setRequest(jsonData);
+			};
+			getBackendWithFetch();
+		} else {
+			setDocumentTitle(GetStrLocalized(language, "holyChatterSearch"));
+			setSearchValue("");
+			console.log("setSearchValue cleared")
+		}
 	}
 
 

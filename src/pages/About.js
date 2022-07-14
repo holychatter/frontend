@@ -1,7 +1,7 @@
 
 import '../assets/resources/custom/style/main-6.css'
 import image_pret_a_chatter from '../assets/resources/custom/images/pret_a_chatter.png'
-import React from 'react'
+import React, { useEffect } from 'react'
 import GetInnerHtmlStrLocalized from '../datas/GetInnerHtmlStrLocalized'
 import GetHtmlStrLocalized from '../datas/GetHtmlStrLocalized'
 import GetStrLocalized from '../datas/GetStrLocalized'
@@ -13,7 +13,9 @@ import { Link } from "react-router-dom"
 
 function About({ language, setDocumentTitle }) {
 
-    setDocumentTitle(GetStrLocalized(language, "about") + " - Holy Chatter");
+    useEffect(() => {
+        setDocumentTitle(GetStrLocalized(language, "about") + " - Holy Chatter");
+    }, [setDocumentTitle, language]);
 
     return (
         <PageContent>
