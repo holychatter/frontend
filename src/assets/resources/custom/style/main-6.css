@@ -22,6 +22,7 @@
 
 .hc-top-bar-menu-button-css
 {
+  color: black;
   width: var(--hc-left-navbar-width);
 }
 .hc-top-bar-menu-button-css:hover {
