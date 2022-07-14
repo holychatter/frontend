@@ -33,9 +33,12 @@ function App() {
 	return (
 		<React.Fragment>
 			<Helmet>
-				<html lang="fr" />
+				<html lang={language} />
 				<title>{documentTitle}</title>
-				<meta name="description" content="Tutorial for React Helmet" />
+				<meta http-equiv="content-language" content={language} />
+				<meta name="language" content={language} />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 			</Helmet>
 			<Routes> {/* The Routes decides which component to show based on the current URL.*/}
 				<Route path='/fr/' element={<Home language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
