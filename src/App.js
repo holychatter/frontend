@@ -9,7 +9,7 @@ import Source from './pages/Source'
 import Sources from './pages/Sources'
 import GetStrLocalized from './datas/GetStrLocalized'
 import React from 'react'
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Helmet } from "react-helmet"
@@ -22,6 +22,8 @@ import Search from './pages/Search'
 import Home from './pages/Home'
 import EmbeddedChatbot from './components/chatbot/EmbeddedChatbot'
 import NavigateTowardDefaultLanguage from './pages/NavigateTowardDefaultLanguage'
+import RedirectToBackOfficeChatbot from './components/util/RedirectToExtenalUrl'
+import RedirectToExtenalUrl from './components/util/RedirectToExtenalUrl'
 
 function App() {
 	const backendUrl = "http://127.0.0.1:8080"
@@ -45,7 +47,8 @@ function App() {
 				<Route path='/fr/*'>
 					<Route path='' element={<HCNavBar language="fr" />}></Route>
 					<Route path={GetStrLocalized("fr", "categoriesFolderName") + "/*"} element={<Categories language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
-					<Route path={GetStrLocalized("fr", "chatbotFolderName")} element={<Chatbot language="fr" setDocumentTitle={setDocumentTitle} />}></Route>
+					<Route path={GetStrLocalized("fr", "chatbotFolderName") + "/*"} element={<RedirectToExtenalUrl to={backendUrl + location.pathname } />}></Route>
+					<Route path="chatbot_tmp" element={<Chatbot language="fr" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("fr", "aboutFolderName")} element={<About language="fr" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("fr", "searchFolderName") + "/*"} element={<Search language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} searchValue={searchValue} setSearchValue={setSearchValue} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsFolderName")} element={<Readings language="fr" setDocumentTitle={setDocumentTitle} />}></Route>
@@ -63,7 +66,8 @@ function App() {
 				<Route path='/en/*'>
 					<Route path='' element={<HCNavBar language="en" />}></Route>
 					<Route path={GetStrLocalized("en", "categoriesFolderName") + "/*"} element={<Categories language="en" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
-					<Route path={GetStrLocalized("en", "chatbotFolderName")} element={<Chatbot language="en" setDocumentTitle={setDocumentTitle} />}></Route>
+					<Route path={GetStrLocalized("en", "chatbotFolderName") + "/*"} element={<RedirectToExtenalUrl to={backendUrl + location.pathname } />}></Route>
+					<Route path="chatbot_tmp" element={<Chatbot language="en" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("en", "aboutFolderName")} element={<About language="en" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("en", "searchFolderName") + "/*"} element={<Search language="en" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} searchValue={searchValue} setSearchValue={setSearchValue} />}></Route>
 					<Route path={GetStrLocalized("en", "readingsFolderName")} element={<Readings language="en" setDocumentTitle={setDocumentTitle} />}></Route>
