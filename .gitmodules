@@ -1,0 +1,3 @@
+[submodule "frontend-public"]
+	path = public
+	url = https://holychatter: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@github.com/holychatter/frontend-public.git
