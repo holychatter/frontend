@@ -40,7 +40,8 @@ const TranslationsEn = {
     "readingsOfTheDay": "Readings of the day",
     "gospelOfTheDay": "Gospel of the day",
     "sources": "Sources",
-    "christianMessage": "Christian message"
+    "christianMessage": "Christian message",
+    "writeASentence": "Write a sentence"
 };
 
 const TranslationsFr = {
@@ -84,7 +85,8 @@ const TranslationsFr = {
     "readingsOfTheDay": "Lectures du jour",
     "gospelOfTheDay": "Évangile du jour",
     "sources": "Sources",
-    "christianMessage": "Message chrétien"
+    "christianMessage": "Message chrétien",
+    "writeASentence": "Écrire une phrase"
 };
 
 

@@ -7,12 +7,16 @@ function EmbeddedChatbot({ backendUrl }) {
     var nbOfTimeOpen = 0;
 
     function CloseBubble() {
-        chatbotBubbeRef.current.style.display = "none";
+        if (chatbotBubbeRef.current) {
+            chatbotBubbeRef.current.style.display = "none";
+        }
     }
 
     function OpenBubble() {
-        chatbotBubbeRef.current.style.display = "block";
-        alreadyOpen = true;
+        if (chatbotBubbeRef.current) {
+            chatbotBubbeRef.current.style.display = "block";
+            alreadyOpen = true;
+        }
     }
 
     function OpenThenCloseBubble() {

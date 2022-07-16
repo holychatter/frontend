@@ -11,7 +11,7 @@ import CloseNav from '../navigation/CloseNav'
 import SearchInput from './SearchInput';
 
 
-function Banner({ language, searchValue }) {
+function Banner({ language, searchValue, isInChatbotPage }) {
 
 	function openOrCloseNav() {
 		if (document.getElementById("hcSidenavId").style.width === "250px") {
@@ -24,7 +24,7 @@ function Banner({ language, searchValue }) {
 
 	return (
 		<React.Fragment>
-			<div className='hc-fixed-banner'>
+			<div className={isInChatbotPage ? "hc-fixed-for-chatbot" : "hc-fixed-banner"}>
 				<span style={{ display: 'block', height: 13 }}></span>
 				<table style={{ width: '100%' }}>
 					<tbody>
@@ -36,37 +36,44 @@ function Banner({ language, searchValue }) {
 								</Link>
 							</td>
 
-							<td width="100%" className="hc-very-short-screen" />
+							{
+								isInChatbotPage ?
+									<td />
+									:
+									<React.Fragment>
+										<td width="100%" className="hc-very-short-screen" />
 
-							<td className="hc-not-very-short-screen">
-								<SearchInput language={language} searchValue={searchValue} />
-							</td>
+										<td className="hc-not-very-short-screen">
+											<SearchInput language={language} searchValue={searchValue} />
+										</td>
 
 
-							<td style={{ paddingTop: 5 }} className="hc-top-bar-sides-css">
+										<td style={{ paddingTop: 5 }} className="hc-top-bar-sides-css">
 
-								<table>
-									<tbody>
-										<tr>
-											<td><span className="hc-very-short-screen" title="Options">
-												<span style={{ paddingRight: 10 }}>
-													<Link to={"/" + language + "/" + GetStrLocalized(language, "searchFolderName")}>
-														<img src={image_magnifying_glass} alt="search" height="30px" width="30px" />
-													</Link>
-												</span>
-											</span></td>
-											<td><span className="hc-not-very-short-screen" title="Youtube channel">
-												<span style={{ paddingRight: 15 }}>
-													<a href="https://www.youtube.com/c/HOLYChatterfr">
-														<img src={image_youtube} alt="YouTube logo" height="30" width="30" />
-													</a>
-												</span>
-											</span></td>
-										</tr>
-									</tbody>
-								</table>
+											<table>
+												<tbody>
+													<tr>
+														<td><span className="hc-very-short-screen" title="Options">
+															<span style={{ paddingRight: 10 }}>
+																<Link to={"/" + language + "/" + GetStrLocalized(language, "searchFolderName")}>
+																	<img src={image_magnifying_glass} alt="search" height="30px" width="30px" />
+																</Link>
+															</span>
+														</span></td>
+														<td><span className="hc-not-very-short-screen" title="Youtube channel">
+															<span style={{ paddingRight: 15 }}>
+																<a href="https://www.youtube.com/c/HOLYChatterfr">
+																	<img src={image_youtube} alt="YouTube logo" height="30" width="30" />
+																</a>
+															</span>
+														</span></td>
+													</tr>
+												</tbody>
+											</table>
 
-							</td>
+										</td>
+									</React.Fragment>
+							}
 
 						</tr>
 					</tbody>

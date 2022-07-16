@@ -19,7 +19,7 @@ function ChristianMessage({ language, setDocumentTitle }) {
         <PageContent>
             <H1TitleId language={language} titleId="christianMessage" />
             <br /><br />
-            <div className="hc-left-a-search">
+            <div className="hc-search-result-paddings">
                 <audio controls>
                     <source src={sound_hurtubise_ogg} type="audio/ogg" />
                     <source src={sound_hurtubise_mp3} type="audio/mpeg" />

@@ -8,7 +8,7 @@ import Readings from './pages/Readings'
 import Source from './pages/Source'
 import Sources from './pages/Sources'
 import GetStrLocalized from './datas/GetStrLocalized'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from "react-router-dom";
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
@@ -30,6 +30,37 @@ function App() {
 	const [language, setLanguage] = useState(location.pathname.length >= 3 ? location.pathname.substring(1, 3) : "en")
 	const [documentTitle, setDocumentTitle] = useState("Holy Chatter")
 	const [searchValue, setSearchValue] = useState("")
+	const [lastPath, setLastPath] = useState("")
+	const [isInChatbotPage, setIsInChatbotPage] = useState(false);
+
+	const [firstLoad, setFirstLoad] = useState(true);
+	const [sessionId, setSessionId] = useState("")
+	useEffect(() => {
+		console.log('Coucou ! ' + sessionId);
+		setInterval(() => {
+			const timestamp = Date.parse(new Date) / 1000
+			const wtUrl = backendUrl + "/session_ping_content_json?sessionId=" + sessionId + "&cookieId=cookieId&timestamp=" + timestamp;
+			console.log("Request url: " + wtUrl);
+			const getBackendWithFetch = async () => {
+				await fetch(wtUrl).catch(function () {
+					console.log("error");
+				});
+			};
+			getBackendWithFetch();
+			console.log('ping: ' + sessionId + ' time:' + timestamp);
+		}, 30000); // every 30 seconds
+	}, [sessionId]);
+	if (firstLoad) {
+		setSessionId(Math.random().toString(16).slice(-8));
+		setFirstLoad(false);
+	}
+
+
+	if (location.pathname !== lastPath) {
+		setLastPath(location.pathname);
+		const foldersArray = location.pathname.split('/');
+		setIsInChatbotPage(foldersArray.length > 2 && foldersArray[2] === 'chatbot_tmp')
+	}
 
 	return (
 		<React.Fragment>
@@ -46,7 +77,7 @@ function App() {
 				<Route path='/fr/*'>
 					<Route path='' element={<HCNavBar language="fr" />}></Route>
 					<Route path={GetStrLocalized("fr", "categoriesFolderName") + "/*"} element={<Categories language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
-					<Route path={GetStrLocalized("fr", "chatbotFolderName") + "/*"} element={<RedirectToExtenalUrl to={backendUrl + location.pathname } />}></Route>
+					<Route path={GetStrLocalized("fr", "chatbotFolderName") + "/*"} element={<RedirectToExtenalUrl to={backendUrl + location.pathname} />}></Route>
 					<Route path="chatbot_tmp" element={<Chatbot language="fr" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("fr", "aboutFolderName")} element={<About language="fr" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("fr", "searchFolderName") + "/*"} element={<Search language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} searchValue={searchValue} setSearchValue={setSearchValue} />}></Route>
@@ -65,7 +96,7 @@ function App() {
 				<Route path='/en/*'>
 					<Route path='' element={<HCNavBar language="en" />}></Route>
 					<Route path={GetStrLocalized("en", "categoriesFolderName") + "/*"} element={<Categories language="en" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
-					<Route path={GetStrLocalized("en", "chatbotFolderName") + "/*"} element={<RedirectToExtenalUrl to={backendUrl + location.pathname } />}></Route>
+					<Route path={GetStrLocalized("en", "chatbotFolderName") + "/*"} element={<RedirectToExtenalUrl to={backendUrl + location.pathname} />}></Route>
 					<Route path="chatbot_tmp" element={<Chatbot language="en" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("en", "aboutFolderName")} element={<About language="en" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("en", "searchFolderName") + "/*"} element={<Search language="en" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} searchValue={searchValue} setSearchValue={setSearchValue} />}></Route>
@@ -82,10 +113,11 @@ function App() {
 				<Route path='*' element={<NavigateTowardDefaultLanguage language="fr" setLanguage={setLanguage} />}></Route>
 			</Routes>
 			<HCNavBar language={language} setLanguage={setLanguage} location={location} backendUrl={backendUrl} />
-			<Banner language={language} searchValue={searchValue} />
+			<Banner language={language} searchValue={searchValue} isInChatbotPage={isInChatbotPage} />
 
 
-			<EmbeddedChatbot backendUrl={backendUrl} />
+			{!isInChatbotPage && <EmbeddedChatbot backendUrl={backendUrl} />}
+
 		</React.Fragment>
 	)
 }
