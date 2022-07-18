@@ -39,7 +39,6 @@ function App() {
 		setInterval(() => {
 			const timestamp = Date.parse(new Date()) / 1000
 			const wtUrl = backendUrl + "/session_ping_content_json?sessionId=" + sessionId + "&cookieId=cookieId&timestamp=" + timestamp;
-			console.log("Request url: " + wtUrl);
 			const getBackendWithFetch = async () => {
 				await fetch(wtUrl).catch(function () {
 					console.log("error");

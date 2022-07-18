@@ -25,7 +25,6 @@ function ReadingsOfTheDay({ language, setDocumentTitle, backendUrl, readingsType
 		if (foldersArray.length > 3)
 			dateFolder = foldersArray[3];
 		const wtUrl = backendUrl + "/readings_of_the_day_content_json?l=" + language + "&r=" + readingsType + "&d=" + dateFolder;
-		console.log("Request url: " + wtUrl);
 		const getBackendWithFetch = async () => {
 			const response = await fetch(wtUrl);
 			const jsonData = await response.json();

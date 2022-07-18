@@ -33,7 +33,6 @@ function Article({ language, setDocumentTitle, backendUrl }) {
 			const articleIdFromPath = foldersArray[2]
 			setArticleId(articleIdFromPath)
 			const wtUrl = backendUrl + "/article_page_json?l=" + language + "&id=" + articleIdFromPath + "&messageIds=" + cookies.messageIds + "&allRecommendationIds=" + cookies.allRecommendationIds;
-			console.log("Request url: " + wtUrl);
 			const getBackendWithFetch = async () => {
 				const response = await fetch(wtUrl);
 				const jsonData = await response.json();

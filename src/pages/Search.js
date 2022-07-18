@@ -24,7 +24,6 @@ function Search({ language, setDocumentTitle, backendUrl, searchValue, setSearch
 
 			setDocumentTitle(query + " - " + GetStrLocalized(language, "holyChatterSearch"));
 			const wtUrl = backendUrl + "/search_content_json?l=" + language + "&q=" + query;
-			console.log("Request url: " + wtUrl);
 			const getBackendWithFetch = async () => {
 				const response = await fetch(wtUrl);
 				const jsonData = await response.json();

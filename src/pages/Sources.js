@@ -21,7 +21,6 @@ function Sources({ language, setDocumentTitle, backendUrl }) {
 
 		setLastPath(location.pathname);
 		const wtUrl = backendUrl + "/sources_page_json?l=" + language;
-		console.log("Request url: " + wtUrl);
 		const getBackendWithFetch = async () => {
 			const response = await fetch(wtUrl);
 			const jsonData = await response.json();

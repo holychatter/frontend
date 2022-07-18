@@ -27,7 +27,6 @@ function Categories({ language, setDocumentTitle, backendUrl }) {
 		}
 
 		const wtUrl = backendUrl + "/categories_page_json?l=" + language + "&id=" + categoryName;
-		console.log("Request url: " + wtUrl);
 		const getBackendWithFetch = async () => {
 			const response = await fetch(wtUrl);
 			const jsonData = await response.json();

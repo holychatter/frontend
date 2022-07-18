@@ -24,7 +24,6 @@ function Home({ language, setDocumentTitle, backendUrl }) {
 	if (location.pathname !== lastPath) {
 		setLastPath(location.pathname);
 		const wtUrl = backendUrl + "/home_content_json?l=" + language + "&messageIds=" + cookies.messageIds + "&allRecommendationIds=" + cookies.allRecommendationIds;
-		console.log("Request url: " + wtUrl);
 		const getBackendWithFetch = async () => {
 			const response = await fetch(wtUrl);
 			const jsonData = await response.json();

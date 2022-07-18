@@ -28,7 +28,6 @@ function CatechismOfTheCatholicChurch({ language, setDocumentTitle, backendUrl }
 			cccSubFolder = foldersArray[4];
 		}
 		const wtUrl = backendUrl + "/ccc_content_json?l=" + language + "&t=" + cccSubFolder;
-		console.log("Request url: " + wtUrl);
 		const getBackendWithFetch = async () => {
 			const response = await fetch(wtUrl);
 			const jsonData = await response.json();

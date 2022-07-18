@@ -71,7 +71,6 @@ function Bible({ language, setDocumentTitle, backendUrl }) {
 			])
 			const wtUrl = backendUrl + "/testament_to_categories_json?l=" + language + "&tt=" +
 				(typeOfPageLocal === TypeOfRequest_OLD_TESTAMENT ? "o" : "n");
-			console.log("Request url: " + wtUrl);
 			const getBackendTestamentWithFetch = async () => {
 				const response = await fetch(wtUrl);
 				const jsonData = await response.json();
@@ -81,7 +80,6 @@ function Bible({ language, setDocumentTitle, backendUrl }) {
 			getBackendTestamentWithFetch();
 		} else if (typeOfPageLocal === TypeOfRequest_BIBLE_CONTENT) {
 			const wtUrl = backendUrl + "/bible_content_json?l=" + language + "&ref=" + bibleSubFolder;
-			console.log("Request url: " + wtUrl);
 			const getBackendCategoriesWithFetch = async () => {
 				const response = await fetch(wtUrl);
 				const jsonData = await response.json();
