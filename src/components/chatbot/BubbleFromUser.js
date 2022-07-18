@@ -1,5 +1,5 @@
 
-function Bubble({ children }) {
+function BubbleFromUser({ children }) {
 
     return (
         <table>
@@ -21,7 +21,7 @@ function Bubble({ children }) {
     )
 }
 
-export default Bubble
+export default BubbleFromUser
 
 
 

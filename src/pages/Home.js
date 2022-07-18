@@ -5,7 +5,7 @@ import PageContent from '../components/util/PageContent'
 import H1TitleId from '../components/title/H1TitleId'
 import CategoriesBigButtons from '../components/bigButton/CategoriesBigButtons'
 import H2TitleId from '../components/title/H2TitleId'
-import Bubbles from '../components/chatbot/Bubbles'
+import BubblesFromUser from '../components/chatbot/BubbleFromUser'
 import { useCookies } from 'react-cookie'
 
 
@@ -49,7 +49,7 @@ function Home({ language, setDocumentTitle, backendUrl }) {
 			<CategoriesBigButtons beginOfKey="recent-videos-" categories={request.recentVideos} />
 			<br />
 
-			<Bubbles language={language} titleId="chatNovelties" chatMsgs={request.recentChatMessages} />
+			<BubblesFromUser language={language} titleId="chatNovelties" chatMsgs={request.recentChatMessages} />
 
 		</PageContent >
 	)

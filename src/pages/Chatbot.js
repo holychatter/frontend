@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Bubble from '../components/chatbot/Bubble';
+import BubblesFromUserInChat from '../components/chatbot/BuddleFromUserInChat';
+import BubblesToUserInChat from '../components/chatbot/BuddleToUserInChat';
 import ScrollToTop from '../components/util/ScrollToTop';
 import GetStrLocalized from '../datas/GetStrLocalized';
 
@@ -41,24 +42,14 @@ function Chatbot({ language, setDocumentTitle, backendUrl }) {
             </div>
             <div className="hc-chat-right-container hc-heart-background">
                 <div className='hc-chat-content'>
+                    <BubblesToUserInChat>
+                        Bonsoir je suis Théophile. <img src="/holychatter-chat-window/images/smile.png" width="20" height="20" /><br />
+                        <b>Je vous souhaite la bienvenue !</b><br />
+                        Que voulez-vous faire ?
+                    </BubblesToUserInChat>
                     {
                         messages.map((message, index) => (
-                            <div key={`chat-msg-${index}`}>
-
-                                <table width="100%">
-                                    <tbody>
-                                        <tr>
-                                            <td width="96%" style={{ paddingBottom: '15px' }}>
-                                                <div style={{ float: 'right' }}>
-                                                    <Bubble  >{message}</Bubble>
-                                                </div>
-                                            </td>
-                                            <td width="4%"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                            </div>
+                            <BubblesFromUserInChat key={`chat-msg-${index}`}>{message}</BubblesFromUserInChat>
                         ))
                     }
                     <div ref={messagesEndRef} />

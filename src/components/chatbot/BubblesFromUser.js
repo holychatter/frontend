@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import H2TitleId from "../title/H2TitleId"
-import Bubble from "./Bubble"
+import BubbleFromUser from "./BubbleFromUser"
 
-function Bubbles({ language, titleId, chatMsgs }) {
+function BubblesFromUser({ language, titleId, chatMsgs }) {
 
     return (
         <React.Fragment>
@@ -18,7 +18,7 @@ function Bubbles({ language, titleId, chatMsgs }) {
                             chatMsgs.map((item, index) => {
                                 return (
                                     <Link key={"chat-msg-" + item.id + "-" + index} className='hc-move-up-animation' style={{ marginTop: 15, marginRight: 15, marginBottom: 15, display: 'inline-block', textDecoration: 'none' }} to='/fr/preparation-a-la-confirmation'>
-                                        <Bubble>{item.mainTrigger}</Bubble>
+                                        <BubbleFromUser>{item.mainTrigger}</BubbleFromUser>
                                     </Link>
                                 )
                             })
@@ -30,7 +30,7 @@ function Bubbles({ language, titleId, chatMsgs }) {
     )
 }
 
-export default Bubbles
+export default BubblesFromUser
 
 
 

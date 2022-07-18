@@ -9,7 +9,7 @@ import H1Title from '../components/title/H1Title'
 import H1TitleBreadcrumb from '../components/title/H1TitleBreadcrumb'
 import PageContent from '../components/util/PageContent'
 import CategoriesBigButtons from '../components/bigButton/CategoriesBigButtons'
-import Bubbles from '../components/chatbot/Bubbles'
+import BubblesFromUser from '../components/chatbot/BubblesFromUser'
 
 function Categories({ language, setDocumentTitle, backendUrl }) {
 
@@ -45,7 +45,7 @@ function Categories({ language, setDocumentTitle, backendUrl }) {
 			<br /><br />
 
 			<CategoriesBigButtons categories={request.bigButtontDatas} />
-			<Bubbles language={language} titleId="relatedQuestions" chatMsgs={request.chatMsgs} />
+			<BubblesFromUser language={language} titleId="relatedQuestions" chatMsgs={request.chatMsgs} />
 
 		</PageContent>
 	)
