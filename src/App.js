@@ -36,7 +36,6 @@ function App() {
 	const [firstLoad, setFirstLoad] = useState(true);
 	const [sessionId, setSessionId] = useState("")
 	useEffect(() => {
-		console.log('Coucou ! ' + sessionId);
 		setInterval(() => {
 			const timestamp = Date.parse(new Date()) / 1000
 			const wtUrl = backendUrl + "/session_ping_content_json?sessionId=" + sessionId + "&cookieId=cookieId&timestamp=" + timestamp;
