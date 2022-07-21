@@ -12,6 +12,7 @@ import GetHtmlStrLocalized from '../datas/GetHtmlStrLocalized'
 import BigButtonWithTextAtRight from '../components/bigButton/BigButtonWithTextAtRight'
 import { useCookies } from 'react-cookie';
 import Refs from '../components/util/Refs'
+import SourceLink from '../components/source/SourceLink'
 
 function Article({ language, setDocumentTitle, backendUrl }) {
 
@@ -20,7 +21,7 @@ function Article({ language, setDocumentTitle, backendUrl }) {
 	const [articleId, setArticleId] = useState("")
 	const [request, setRequest] = useState({
 		name: "", parentFolders: [], html: "", tags: "", references: [],
-		fileType: "", sourceIconPath: "", sourceName: "", sourcePath: "", sourceUrl: "",
+		fileType: "", source: { path: "", name: "", path: "", url: "" },
 		duration: "", viewCountsAndUploadDate: "", chatbotId: "",
 		rightRecommendationsHtmlForLongSreens: [], bibleRefs: [], cccRefs: []
 	})
@@ -92,23 +93,13 @@ function Article({ language, setDocumentTitle, backendUrl }) {
 										}
 
 										{
-											request.sourceName !== "" &&
-											<React.Fragment>
-												{
-													request.fileType !== "html" &&
-													<br />
-												}
-												<img src={request.sourceIconPath} alt="icon of the source" className="hc-source-icon" />
-												<Link to={request.sourcePath} >{request.sourceName}</Link>
-												{
-													request.fileType !== "html" &&
-													<br />
-												}
-												{
-													request.sourceUrl !== "" &&
-													<React.Fragment>&nbsp;&nbsp;&nbsp;(<a href={request.sourceUrl}>{request.sourceUrl}</a>)</React.Fragment>
-												}
-											</React.Fragment>
+											request.fileType !== "html" &&
+											<br />
+										}
+										<SourceLink source={request.source} />
+										{
+											request.fileType !== "html" &&
+											<br />
 										}
 									</p>
 									<br />

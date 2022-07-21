@@ -14,6 +14,7 @@ function Chatbot({ language, setDocumentTitle, backendUrl }) {
     const messagesEndRef = useRef();
     setDocumentTitle("Chatbot - Holy Chatter");
 
+	const [request, setRequest] = useState({ bubbles: [] })
     const [messages, setMessages] = useState([])
     function onEnterPress(e) {
         if (e.keyCode === 13 && e.shiftKey === false) {
@@ -22,6 +23,15 @@ function Chatbot({ language, setDocumentTitle, backendUrl }) {
         }
     }
     function onTextValidated() {
+
+        const wtUrl = backendUrl + "/chatbot_json?l=" + language + "&chatbotId=&textInput=" + chatbotTextareaRef.current.value;
+        console.log("Request url : " + wtUrl);
+        const getBackendWithFetch = async () => {
+            const response = await fetch(wtUrl);
+            const jsonData = await response.json();
+            setRequest(jsonData);
+        };
+        getBackendWithFetch();
         setMessages([...messages, chatbotTextareaRef.current.value]);
         chatbotTextareaRef.current.value = ""
     }

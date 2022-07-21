@@ -76,7 +76,7 @@ function App() {
 					<Route path='' element={<HCNavBar language="fr" />}></Route>
 					<Route path={GetStrLocalized("fr", "categoriesFolderName") + "/*"} element={<Categories language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("fr", "chatbotFolderName") + "/*"} element={<RedirectToExtenalUrl to={backendUrl + location.pathname} />}></Route>
-					<Route path="chatbot_tmp" element={<Chatbot language="fr" setDocumentTitle={setDocumentTitle} />}></Route>
+					<Route path="chatbot_tmp" element={<Chatbot language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("fr", "aboutFolderName")} element={<About language="fr" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("fr", "searchFolderName") + "/*"} element={<Search language="fr" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} searchValue={searchValue} setSearchValue={setSearchValue} />}></Route>
 					<Route path={GetStrLocalized("fr", "readingsFolderName")} element={<Readings language="fr" setDocumentTitle={setDocumentTitle} />}></Route>
@@ -95,7 +95,7 @@ function App() {
 					<Route path='' element={<HCNavBar language="en" />}></Route>
 					<Route path={GetStrLocalized("en", "categoriesFolderName") + "/*"} element={<Categories language="en" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("en", "chatbotFolderName") + "/*"} element={<RedirectToExtenalUrl to={backendUrl + location.pathname} />}></Route>
-					<Route path="chatbot_tmp" element={<Chatbot language="en" setDocumentTitle={setDocumentTitle} />}></Route>
+					<Route path="chatbot_tmp" element={<Chatbot language="en" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} />}></Route>
 					<Route path={GetStrLocalized("en", "aboutFolderName")} element={<About language="en" setDocumentTitle={setDocumentTitle} />}></Route>
 					<Route path={GetStrLocalized("en", "searchFolderName") + "/*"} element={<Search language="en" setDocumentTitle={setDocumentTitle} backendUrl={backendUrl} searchValue={searchValue} setSearchValue={setSearchValue} />}></Route>
 					<Route path={GetStrLocalized("en", "readingsFolderName")} element={<Readings language="en" setDocumentTitle={setDocumentTitle} />}></Route>
