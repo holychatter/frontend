@@ -14,25 +14,66 @@ function Chatbot({ language, setDocumentTitle, backendUrl }) {
     const messagesEndRef = useRef();
     setDocumentTitle("Chatbot - Holy Chatter");
 
-	const [request, setRequest] = useState({ bubbles: [] })
-    const [messages, setMessages] = useState([])
+    function writeBuble(fromUser, str, isHtmlCode, recommendations) {
+        return {
+            elts: [
+                {
+                    str: str,
+                    isHtmlCode: isHtmlCode
+                }
+            ],
+            fromUser: fromUser,
+            recommendations: recommendations
+        }
+    }
+
+    const [request, setRequest] = useState({ bubbles: [] })
+    const [messages, setMessages] = useState([
+        writeBuble("false",
+            "Bonsoir je suis Théophile. <img src='/holychatter-chat-window/images/smile.png' width='20' height='20' alt='smile smiley' /><br />" +
+            "<b>Je vous souhaite la bienvenue !</b><br />" +
+            "Que voulez-vous faire ?", "true", [
+            {
+                str: "Oui, allons-y !",
+                isPrimary: "true"
+            },
+            {
+                str: "Continuer la conversation",
+                isPrimary: "false"
+            }
+        ])
+    ])
     function onEnterPress(e) {
         if (e.keyCode === 13 && e.shiftKey === false) {
             e.preventDefault();
             onTextValidated();
         }
     }
-    function onTextValidated() {
 
-        const wtUrl = backendUrl + "/chatbot_json?l=" + language + "&chatbotId=&textInput=" + chatbotTextareaRef.current.value;
+
+
+
+    function onTextValidated() {
+        const newtext = chatbotTextareaRef.current.value;
+        if (newtext === "")
+            return;
+
+        const bubble = writeBuble("true", newtext, "false", [])
+        var messagesLocal = [...messages, bubble]
+        setMessages(messagesLocal);
+
+        const wtUrl = backendUrl + "/chatbot_json?l=" + language + "&chatbotId=&textInput=" + newtext;
         console.log("Request url : " + wtUrl);
         const getBackendWithFetch = async () => {
             const response = await fetch(wtUrl);
             const jsonData = await response.json();
-            setRequest(jsonData);
+            setRequest(jsonData.bubbles);
+            messagesLocal = [...messagesLocal, ...jsonData.bubbles]
+            setMessages(messagesLocal);
         };
         getBackendWithFetch();
-        setMessages([...messages, chatbotTextareaRef.current.value]);
+
+
         chatbotTextareaRef.current.value = ""
     }
 
@@ -54,17 +95,46 @@ function Chatbot({ language, setDocumentTitle, backendUrl }) {
             </div>
             <div className="hc-chat-right-container hc-heart-background">
                 <div className='hc-chat-content'>
-                    <BubblesToUserInChat>
-                        Bonsoir je suis Théophile. <img src="/holychatter-chat-window/images/smile.png" width="20" height="20" alt="smile smiley" /><br />
-                        <b>Je vous souhaite la bienvenue !</b><br />
-                        Que voulez-vous faire ?
-                    </BubblesToUserInChat>
-                    <RecommendationsWrapperForChat>
-                        <Recommendation isPrimary={true}>Oui, allons-y !</Recommendation>
-                    </RecommendationsWrapperForChat>
                     {
-                        messages.map((message, index) => (
-                            <BubblesFromUserInChat key={`chat-msg-${index}`}>{message}</BubblesFromUserInChat>
+                        messages.map((message, messageIndex) => (
+                            <span key={`chat-msg-${messageIndex}`}>
+                                {
+                                    message.fromUser === "true" ?
+                                        <BubblesFromUserInChat>
+                                            {
+                                                message.elts.map((elt, eltIndex) => (
+                                                    <span key={`msg-elt-${messageIndex}-${eltIndex}`}>{elt.str}</span>
+                                                ))
+
+
+                                            }
+                                        </BubblesFromUserInChat>
+                                        :
+                                        <BubblesToUserInChat>
+                                            {
+                                                message.elts.map((elt, eltIndex) => (
+                                                    <span key={`msg-elt-${messageIndex}-${eltIndex}`}>
+                                                        {
+                                                            elt.isHtmlCode === "true" ?
+                                                                <span dangerouslySetInnerHTML={{ __html: elt.str }}></span>
+                                                                :
+                                                                <span>{elt.str}</span>
+                                                        }
+                                                    </span>
+                                                ))
+                                            }
+                                        </BubblesToUserInChat>
+                                }
+
+                                <RecommendationsWrapperForChat>
+                                    {
+                                        message.recommendations !== undefined &&
+                                        message.recommendations.map((recommendation, recIndex) => (
+                                            <span key={`msg-rec-${messageIndex}-${recIndex}`}><Recommendation isPrimary={recommendation.isPrimary === "true"}>{recommendation.str}</Recommendation></span>
+                                        ))
+                                    }
+                                </RecommendationsWrapperForChat>
+                            </span>
                         ))
                     }
                     <div ref={messagesEndRef} />
