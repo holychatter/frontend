@@ -10,7 +10,7 @@ function BubblesToUserInChat({ source, children }) {
             <tbody>
                 <tr>
                     <td width="4%"></td>
-                    <td width="96%" style={{ paddingBottom: '15px' }}>
+                    <td width="96%">
                         <div>
                             <BubbleToUser>{children}</BubbleToUser>
                             {
