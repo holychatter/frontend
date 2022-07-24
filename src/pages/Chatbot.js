@@ -3,7 +3,6 @@ import BubblesFromUserInChat from '../components/chatbot/BuddleFromUserInChat';
 import BubblesToUserInChat from '../components/chatbot/BuddleToUserInChat';
 import Recommendation from '../components/chatbot/Recommendation';
 import RecommendationsWrapperForChat from '../components/chatbot/RecommendationsWrapperForChat';
-import SourceLink from '../components/source/SourceLink';
 import ScrollToTop from '../components/util/ScrollToTop';
 import GetStrLocalized from '../datas/GetStrLocalized';
 
@@ -15,7 +14,7 @@ function Chatbot({ language, setDocumentTitle, backendUrl }) {
     const messagesEndRef = useRef();
     setDocumentTitle("Chatbot - Holy Chatter");
 
-    function writeBuble(fromUser, str, isHtmlCode, recommendations) {
+    function writeBuble(fromUser, str, isHtmlCode) {
         return {
             elts: [
                 {
@@ -23,26 +22,25 @@ function Chatbot({ language, setDocumentTitle, backendUrl }) {
                     isHtmlCode: isHtmlCode
                 }
             ],
-            fromUser: fromUser,
-            recommendations: recommendations
+            fromUser: fromUser
         }
     }
 
-    const [request, setRequest] = useState({ bubbles: [] })
+    const [recommendations, setRecommendations] = useState([
+        {
+            str: "Oui, allons-y !",
+            isPrimary: "true"
+        },
+        {
+            str: "Continuer la conversation",
+            isPrimary: "false"
+        }
+    ])
     const [messages, setMessages] = useState([
         writeBuble("false",
             "Bonsoir je suis Théophile. <img src='/holychatter-chat-window/images/smile.png' width='20' height='20' alt='smile smiley' /><br />" +
             "<b>Je vous souhaite la bienvenue !</b><br />" +
-            "Que voulez-vous faire ?", "true", [
-            {
-                str: "Oui, allons-y !",
-                isPrimary: "true"
-            },
-            {
-                str: "Continuer la conversation",
-                isPrimary: "false"
-            }
-        ])
+            "Que voulez-vous faire ?", "true")
     ])
     function onEnterPress(e) {
         if (e.keyCode === 13 && e.shiftKey === false) {
@@ -68,7 +66,7 @@ function Chatbot({ language, setDocumentTitle, backendUrl }) {
         const getBackendWithFetch = async () => {
             const response = await fetch(wtUrl);
             const jsonData = await response.json();
-            setRequest(jsonData.bubbles);
+            setRecommendations(jsonData.recommendations);
             messagesLocal = [...messagesLocal, ...jsonData.bubbles]
             setMessages(messagesLocal);
         };
@@ -96,6 +94,7 @@ function Chatbot({ language, setDocumentTitle, backendUrl }) {
             </div>
             <div className="hc-chat-right-container hc-heart-background">
                 <div className='hc-chat-content'>
+                    <br/>
                     {
                         messages.map((message, messageIndex) => (
                             <span key={`chat-msg-${messageIndex}`}>
@@ -135,6 +134,16 @@ function Chatbot({ language, setDocumentTitle, backendUrl }) {
                             </span>
                         ))
                     }
+                    <RecommendationsWrapperForChat>
+                        {
+                            recommendations !== undefined &&
+                            recommendations !== "" &&
+                            recommendations.map((recommendation, recIndex) => (
+                                <span key={`request-rec-${recIndex}`}><Recommendation isPrimary={recommendation.isPrimary === "true"}>{recommendation.str}</Recommendation></span>
+                            ))
+                        }
+                    </RecommendationsWrapperForChat>
+
                     <div ref={messagesEndRef} />
                 </div>
             </div>
