@@ -27,7 +27,7 @@ Build and make an archive of the frontend:
 
 Copy the frontend to the server
 
-`scp -r build.zip root@<server_ip>:/var/www/html/`
+`scp build.zip root@<server_ip>:/var/www/html/`
 
 
 Open a terminal in the server
@@ -48,6 +48,11 @@ Remove the previous build:
 Unzip de build folder:
 
 `unzip build.zip`
+
+
+Add videos:
+
+`cp -r videos/ build/`
 
 
 Remove the archive:
