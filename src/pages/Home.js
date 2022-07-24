@@ -48,8 +48,6 @@ function Home({ language, setDocumentTitle, backendUrl }) {
 			<CategoriesBigButtons beginOfKey="recent-videos-" categories={request.recentVideos} />
 			<br />
 
-			<BubblesFromUser language={language} titleId="chatNovelties" chatMsgs={request.recentChatMessages} />
-
 		</PageContent >
 	)
 }
