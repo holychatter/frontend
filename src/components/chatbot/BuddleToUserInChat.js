@@ -1,8 +1,9 @@
 import React from "react"
+import SourceLink from "../source/SourceLink"
 import BubbleToUser from "./BubbleToUser"
 
 
-function BubblesToUserInChat({ children }) {
+function BubblesToUserInChat({ source, children }) {
 
     return (
         <table width="100%">
@@ -12,6 +13,12 @@ function BubblesToUserInChat({ children }) {
                     <td width="96%" style={{ paddingBottom: '15px' }}>
                         <div>
                             <BubbleToUser>{children}</BubbleToUser>
+                            {
+                                source !== undefined &&
+                                <div style={{ display: 'inline-block', marginLeft: 14, padding: 5, backgroundColor: 'white' }}>
+                                    <SourceLink source={source} />
+                                </div>
+                            }
                         </div>
                     </td>
                 </tr>

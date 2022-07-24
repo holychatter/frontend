@@ -3,6 +3,7 @@ import BubblesFromUserInChat from '../components/chatbot/BuddleFromUserInChat';
 import BubblesToUserInChat from '../components/chatbot/BuddleToUserInChat';
 import Recommendation from '../components/chatbot/Recommendation';
 import RecommendationsWrapperForChat from '../components/chatbot/RecommendationsWrapperForChat';
+import SourceLink from '../components/source/SourceLink';
 import ScrollToTop from '../components/util/ScrollToTop';
 import GetStrLocalized from '../datas/GetStrLocalized';
 
@@ -105,12 +106,10 @@ function Chatbot({ language, setDocumentTitle, backendUrl }) {
                                                 message.elts.map((elt, eltIndex) => (
                                                     <span key={`msg-elt-${messageIndex}-${eltIndex}`}>{elt.str}</span>
                                                 ))
-
-
                                             }
                                         </BubblesFromUserInChat>
                                         :
-                                        <BubblesToUserInChat>
+                                        <BubblesToUserInChat source={message.source}>
                                             {
                                                 message.elts.map((elt, eltIndex) => (
                                                     <span key={`msg-elt-${messageIndex}-${eltIndex}`}>
@@ -125,7 +124,6 @@ function Chatbot({ language, setDocumentTitle, backendUrl }) {
                                             }
                                         </BubblesToUserInChat>
                                 }
-
                                 <RecommendationsWrapperForChat>
                                     {
                                         message.recommendations !== undefined &&
