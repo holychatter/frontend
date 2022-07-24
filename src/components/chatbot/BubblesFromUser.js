@@ -17,7 +17,7 @@ function BubblesFromUser({ language, titleId, chatMsgs }) {
                         {
                             chatMsgs.map((item, index) => {
                                 return (
-                                    <Link key={"chat-msg-" + item.id + "-" + index} className='hc-move-up-animation' style={{ marginTop: 15, marginRight: 15, marginBottom: 15, display: 'inline-block', textDecoration: 'none' }} to='/fr/preparation-a-la-confirmation'>
+                                    <Link key={"chat-msg-" + item.id + "-" + index} className='hc-move-up-animation' style={{ marginTop: 15, marginRight: 15, marginBottom: 15, display: 'inline-block', textDecoration: 'none' }} to={'/' + language + '/' + item.id}>
                                         <BubbleFromUser>{item.mainTrigger}</BubbleFromUser>
                                     </Link>
                                 )
