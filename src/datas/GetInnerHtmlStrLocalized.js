@@ -54,7 +54,7 @@ const TranslationsFr = {
         "il nous dit encore : un regard de notre part, un geste de pardon et il est prêt à nous ouvrir son cœur pour nous établir en lui pour l'éternité bienheureuse !",
     "hurtubiseMsg12": "<br />Merci Seigneur !<br />\n" +
         "Père Gaston Hurtubise<br /><br />\n" +
-        "Source: <a href=\"https://www.youtube.com/watch?v=bhV8r2qdDX8\">Après la mort, la vie continue ! (Vous allez être surpris par cette vidéo)</a>",
+        "Source: <a href=\"/fr/predication-sur-le-sacre-cur-suivie-d-une-montee-au-ciel\">Après la mort, la vie continue ! (Vous allez être surpris par cette vidéo)</a>",
     "encyclicLetterPatrisCordeText": "Texte : <a href='http://www.vatican.va/content/francesco/fr/apost_letters/documents/papa-francesco-lettera-ap_20201208_patris-corde.html'>http://www.vatican.va/content/francesco/fr/apost_letters/documents/papa-francesco-lettera-ap_20201208_patris-corde.html</a>",
     "encyclicalFratelliTuttiText": "Texte : <a href='http://www.vatican.va/content/francesco/fr/encyclicals/documents/papa-francesco_20201003_enciclica-fratelli-tutti.html'>http://www.vatican.va/content/francesco/fr/encyclicals/documents/papa-francesco_20201003_enciclica-fratelli-tutti.html</a>",
     "encyclicalLaudatoSiText": "Texte: <a href='http://www.vatican.va/content/francesco/fr/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html'>http://www.vatican.va/content/francesco/fr/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html</a>",
